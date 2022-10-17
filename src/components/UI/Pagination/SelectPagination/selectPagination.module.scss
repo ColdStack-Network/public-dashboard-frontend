@@ -1,0 +1,113 @@
+@import "src/common";
+
+
+.container{
+  position: relative;
+  width: 60px;
+  & *:hover {
+    cursor: pointer;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.wrap{
+  display: flex;
+}
+.labelInput{
+  margin-right: 14px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  color: $textSecondary;
+
+  @media (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.input{
+  width: 100%;
+  outline: none;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
+  padding: 3px 24px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $textSecondary;
+  border: 1px solid $border;
+  border-radius: 3px;
+  transition: all 0.2s linear;
+  background: white;
+  text-align: center;
+  @include placeholder()
+}
+.list{
+  position: absolute;
+  z-index: 2;
+  //top: calc(100% + 8px);
+  //top: calc(-400% - 8px);
+  top: calc(30px);
+  width: 100%;
+  min-height: 30px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid $border;
+  padding: 7px 0;
+  border-radius: 3px;
+}
+.listItemElement{
+  padding: 0 10px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  max-width: 100%;
+  overflow: hidden;
+  color: $text;
+  background: white;
+  &:focus {
+    outline: none !important;
+  }
+  &:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.listItemElementActive{
+  background: $bgInput;
+}
+.arrowIcon{
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.error{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+.errorText{
+  color: $error;
+  font-size: 12px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+}
+
+.errIcon{
+  margin-right: 8px;
+}

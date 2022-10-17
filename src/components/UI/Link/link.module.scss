@@ -1,0 +1,12 @@
+@import "src/common";
+
+.item{
+  display: inline;
+  text-decoration: none;
+  color: $secondary;
+  &:hover{
+    color: $secondaryHover;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

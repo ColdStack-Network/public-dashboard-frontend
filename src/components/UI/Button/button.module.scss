@@ -1,0 +1,154 @@
+@import "src/common";
+.button{
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 5px;
+  box-shadow: none!important;
+  border: none!important;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.buttonprimary{
+  background: $primary;
+  &:hover{
+    background: $primaryHover;
+  }
+}
+
+.buttonaccent{
+  background: $accent;
+  &:hover{
+    background: $accentHover;
+  }
+}
+
+.buttonsecondary{
+  background: $secondary;
+  &:hover{
+    background: $secondaryHover;
+  }
+}
+
+.buttontransparent{
+  background: $transparent;
+  &:hover{
+    background: $transparentHover;
+  }
+}
+
+.buttonDisabledtransparent{
+  cursor: auto !important;
+  &:hover{
+    background: $transparent;
+  }
+}
+
+.buttonadditional{
+  background: $bgInput;
+  color: $text;
+  &:hover{
+    background: $bgInputHover;
+  }
+}
+.buttongray{
+  background: $grey;
+  color: $white;
+  &:hover{
+    background: $greyHover;
+  }
+}
+
+.buttonlightgray{
+  background: $bgInput;
+  //background: gray;
+  color: $text;
+  &:hover{
+    background: $greyHover;
+  }
+}
+
+.buttondisabled{
+  background: $bgInput;
+  cursor: auto !important;
+  color: $text;
+}
+
+.buttonaccent{
+  background: $error;
+  color: white;
+  &:hover{
+    background: $accentHover;
+  }
+}
+.buttonDisabledadditional{
+  cursor: auto;
+  &:hover{
+    background: $bgInput;
+    cursor: auto;
+  }
+}
+
+.buttonsmall{
+  width: 140px;
+}
+.buttonbig{
+  width: 168px;
+  height: 48px;
+  @media (max-width: 767.9px){
+    width: 100%;
+    padding: 6px 20px;
+  }
+}
+.buttonlarge{
+  width: 300px;
+  height: 48px;
+  @media (max-width: 767.9px){
+    width: 100%;
+    padding: 6px 20px;
+  }
+}
+.buttonextrasmall{
+  height: 32px;
+  width: 140px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.buttontiny{
+  width: auto;
+  height: 16px;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.buttongift {
+  width: 270px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.buttonfullwidth{
+  display: block !important;
+  height: 32px;
+  width: 100%;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 0 32px;
+}
+
+.buttonsquare {
+  display: block !important;
+  width: 48px;
+  height: 48px;
+}

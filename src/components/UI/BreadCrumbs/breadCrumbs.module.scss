@@ -1,0 +1,38 @@
+@import "src/common";
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.item{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 14px;
+  line-height: 18px;
+  &:hover{
+    cursor: pointer;
+  }
+  & .itemText{
+    color: $secondary;
+    text-decoration: underline;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+  & .itemAfter{
+    color: $textSecondary;
+    text-decoration: none;
+    margin: 0 2px;
+  }
+}
+.itemActive{
+  text-decoration: none;
+  color: $textSecondary;
+  font-weight: 500;
+  &::after{
+    display: none;
+  }
+  &:hover{
+    cursor: default;
+  }
+}

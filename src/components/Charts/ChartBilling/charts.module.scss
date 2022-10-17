@@ -1,0 +1,121 @@
+@import "src/components/UI/Input/input.module";
+@import "src/common";
+
+.chartsContainer {
+  background: white;
+  border: 1px solid #D9E1FF;
+  border-radius: 10px;
+}
+
+.chartWrap {
+  padding: 0 4px 20px;
+}
+
+.desktopTabs {
+  @media(max-width: 1023.9px) {
+    display: none;
+  }
+}
+
+.mobileTabs {
+  display: none;
+  @media(max-width: 1023.9px) {
+    display: flex;
+  }
+}
+
+.mobileTabs > div {
+  width: 40px;
+  height: 50px;
+}
+
+.inputWrap {
+  width: 180px;
+  margin-right: 16px;
+
+  & input {
+    text-align: center;
+  }
+
+  @media(max-width: 1439.9px) {
+    width: 170px
+  }
+  @media(max-width: 1199px) {
+    width: 140px
+  }
+  @media(max-width: 767.9px) {
+    width: 130px;
+    &:last-child {
+      margin-right: 0
+    }
+  }
+  @media(max-width: 374.9px) {
+    width: 110px
+  }
+}
+
+.inputChart {
+  @media(max-width: 374.9px) {
+    padding: 0 10px;
+  }
+}
+
+.inputLabel {
+
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0;
+  padding: 24px;
+  padding-bottom: 12px;
+
+  @media(max-width: 374.9px) {
+    padding: 15px;
+  }
+}
+
+.inputsRow {
+  display: flex;
+}
+
+.chartButton {
+  color: white;
+  border-radius: 5px;
+  width: 48px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+  border: none !important;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+  background-color: $primary;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.chartButton {
+  cursor: pointer;
+
+}
+
+.chartButton:hover {
+  background: #28AB7C;
+}
+
+.buttons {
+  display: flex;
+  padding-top: 32px;
+
+  & .chartButton:last-child {
+    margin-right: 0;
+  }
+}

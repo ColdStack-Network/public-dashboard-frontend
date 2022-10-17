@@ -1,0 +1,36 @@
+@import "src/common";
+
+.content{
+  padding-top: 51px;
+  padding-bottom: 64px;
+  @media (max-width: 767.9px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.pagination{
+  margin-top: 16px;
+}
+.buttonWrap{
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    width: 168px
+  }
+}
+.mobileButtonWrap{
+  display: none;
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+      display: block;
+      margin-right: 6px;
+      & button{
+        width: 48px!important;
+      }
+  }
+}
+.pageTitleBuckets{
+  @media (max-width: 767.9px) {
+    margin-bottom: 40px;
+  }
+}

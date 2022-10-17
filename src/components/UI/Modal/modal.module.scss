@@ -1,0 +1,142 @@
+@import 'src/common';
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(72, 81, 102, 0.8);
+  animation-name: appear;
+  animation-duration: 100ms;
+}
+
+.modalDialog {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  margin: 0 20px;
+  max-height: calc(100vh - 40px);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  /*overflow: hidden;*/
+  background: white;
+  border-radius: 15px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.2s;
+  animation-name: slide-in;
+  animation-duration: 0.1s;
+  padding: 24px;
+  @media (max-width: 767.9px) {
+    margin: 0 15px;
+    max-width: calc(100% - 30px);
+  }
+}
+
+.modalHeader,
+.modalFooter {
+  display: flex;
+  align-items: center;
+}
+
+.modalHeader {
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.modalFooter {
+  justify-content: flex-end;
+  margin-top: 48px;
+}
+
+.modalFooterCenter {
+  justify-content: center;
+}
+
+.modalClose {
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  margin: 0 0 0 auto;
+  height: 24px;
+}
+
+.modalWrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  overflow: auto;
+  //overflow: visible;
+}
+
+.modalWrapper::-webkit-scrollbar {
+  width: 0
+}
+
+.modalWrapper::-webkit-scrollbar {
+  width: 0
+}
+
+.modalBody {
+  //scrollbar-width: none;
+  //-ms-overflow-style: none;
+  //overflow: -moz-scrollbars-none;
+  //overflow: auto;
+  //overflow: visible;
+  //padding-bottom: 48px;
+}
+
+//.modalBody::-webkit-scrollbar {
+//  width: 0
+//}
+//
+//.modalBody::-webkit-scrollbar {
+//  width: 0
+//}
+
+.modalContent {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: $textSecondary;
+}
+
+.modalTitle {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: $textSecondary;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+

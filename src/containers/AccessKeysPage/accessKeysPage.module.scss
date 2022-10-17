@@ -1,0 +1,35 @@
+@import "src/common";
+
+.buttonWrap{
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: none;
+  }
+}
+.mobileButtonWrap{
+  display: none;
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: block;
+    & button{
+      width: 48px!important;
+    }
+  }
+}
+.headerRowAccess{
+  @media(max-width: 767.9px){
+    & .buttonWrap{
+      display: inline-flex;
+    }
+    display: block;
+  }
+}
+
+.pageTitleKeys{
+  @media (max-width: 767.9px) {
+    margin-bottom: 40px;
+  }
+}
+
+.content{
+  padding-top: 57px
+}
+

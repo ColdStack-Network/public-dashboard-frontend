@@ -1,0 +1,125 @@
+@import "src/common";
+
+.container{
+  background: $bgInput;
+  border: 1px dashed $border;
+  border-radius: 15px;
+  padding: 16px;
+  &.active{
+    border: 1px dashed $grey;
+  }
+
+  @media(max-width: 500px) {
+    border: none;
+    background: transparent;
+    padding: 15px 0;
+  }
+
+
+}
+.container_support{
+  background: $bgInput;
+  border: 1px dashed $border;
+  border-radius: 5px;
+  padding: 0;
+  margin-bottom: 48px;
+}
+.icon{
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+.text{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: $drag;
+  margin-bottom: 8px;
+  text-align: center;
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.container_support .buttonContainer{
+  display: block;
+}
+
+
+.buttonContainerDisabled, .buttonContainerDisabled *{
+  pointer-events: none;
+}
+.file{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  padding-right: 8px;
+}
+.wrap{
+  margin-bottom: 23px;
+}
+.progress{
+  background: $bgInput;
+  width: 100%;
+  height: 8px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.innerProgress{
+  background: $primary;
+  height: 8px;
+  width: 0px;
+}
+.fileRow{
+  display: flex;
+  align-items: center;
+}
+.fileIcon{
+  margin-right: 24px;
+  height: 24px
+}
+.fileName{
+  color: $textSecondary;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.fileSize{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: #5A5D65;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 12px;
+}
+.filePercent{
+  @media(max-width: 767px){
+    display: none;
+  }
+}
+.removeFile{
+  height: 16px;
+  & svg{
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}

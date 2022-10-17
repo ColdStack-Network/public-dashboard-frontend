@@ -1,0 +1,103 @@
+@import "src/common";
+.container {
+
+}
+
+.checkrow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  margin-bottom: 29px;
+  @media(max-width: 500px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+}
+
+.size {
+  display: inline-block;
+
+  color: $text;
+}
+
+.textSize {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $textSecondary;
+  margin-right: 16px;
+}
+
+.buttonsRow {
+  display: flex;
+  justify-content: flex-end;
+
+  & .wrapBtn1, & .wrapBtn2 {
+    /*width: 200px;*/
+  }
+  & .wrapBtn1 {
+    margin-right: 24px;
+  }
+  & button {
+    width: 140px;
+  }
+
+  @media(max-width: 500px) {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    & .wrapBtn1, & .wrapBtn2 {
+      width: 100%;
+      margin-right: 0;
+
+      button {
+        width: 100% !important;
+      }
+    }
+    & .wrapBtn2 {
+      margin-bottom: 15px;
+
+      button {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+.filesList {
+  margin-top: 46px;
+}
+
+.warningWrap {
+  margin-top: 32px;
+}
+
+.warningText {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: $textSecondary;
+  max-width: 327px;
+  margin-bottom: 32px;
+}
+
+.warningRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.warningLabel {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $text;
+  margin-left: 16px;
+}

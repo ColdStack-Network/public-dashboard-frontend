@@ -1,0 +1,180 @@
+@import "src/common";
+
+.content{
+  padding-top: 45px;
+  margin-bottom: 24px;
+  @media (max-width: 767.9px) {
+    padding-top: 30px;
+  }
+}
+.billingTitle{
+  @media (max-width: 767.9px) {
+    margin: 14px 0 50px 0;
+  }
+}
+
+.buttonsRow{
+  display: flex;
+  & > div:first-child{
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 767.9px){
+  .buttonsRow{
+    max-width: 345px;
+    & > div:first-child{
+      margin-right: auto;
+    }
+  }
+}
+.buttonWrap{
+
+  width: 100%;
+  flex-shrink: 0;
+  max-width: 158px;
+  @media (min-width: 1440px) {
+    max-width: 168px;
+  }
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: none;
+  }
+  @media (max-width: 374.9px) {
+    max-width: 140px;
+    & button{
+      font-size: 12px
+    }
+  }
+}
+
+.mobileButtonWrap{
+  display: none;
+  margin-right: 16px;
+  &:last-child{
+    margin-right: 0;
+  }
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: block;
+    & button{
+      width: 48px!important;
+    }
+  }
+}
+.wrapRight{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.transactions{
+  margin-top: 32px
+}
+
+.transactionsTitle{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: $textSecondary;
+  padding: 22px 24px 24px 24px;
+  border-bottom: 1px solid $border;
+}
+
+
+.label{
+  margin-right: 24px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  height: 16px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  flex-shrink: 0;
+  @media(max-width: 767.9px){
+    margin-top: 0;
+  }
+}
+
+
+.labelFailed{
+  background: $error;
+}
+.labelSuccess{
+  background: $primary;
+}
+
+.transactionsRow{
+  display: flex;
+  padding: 27px 24px 11px;
+  border-bottom: 1px solid $border;
+  &:last-child{
+    border-bottom: 0;
+  }
+  @media(max-width: 767.9px){
+    display: block;
+    padding: 23px 24px 7px;
+  }
+}
+.transactionInfo{
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 20px;
+  @media(max-width: 767.9px){
+    display: block;
+  }
+}
+.wrapTokens{
+  margin-bottom: 16px;
+  display: flex;
+}
+.wrapCLS{
+  margin-bottom: 16px;
+}
+.amount{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $text;
+}
+.fee{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $textSecondary;
+}
+
+.arrow{
+  height: 24px;
+  margin: 0 24px;
+  @media(max-width: 767.9px){
+   margin-left: 0;
+    margin-right: 15px;
+  }
+}
+.tokens{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+.tokensSuccess{
+  color: $primary;
+}
+.tokensError{
+  color: $error;
+}
+.date{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $text;
+  margin-bottom: 16px;
+}
+.chartBlock{
+  margin-top: 56px
+}

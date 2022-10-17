@@ -1,0 +1,81 @@
+.titleClassName {
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 48px;
+	margin: 0;
+	text-align: center;
+	color: #333333;
+	width: 100%;
+	margin-bottom: -48px;
+}
+.presentText {
+	font-size: 16px;
+	line-height: 24px;
+	text-align: center;
+	color: #5A5D65;
+	margin-top: 0;
+	margin-bottom: 36px;
+	span {
+		color: #0053F1;
+	}
+}
+.secondPresentText {
+	font-size: 14px;
+	text-align: center;
+	margin: 40px 0;
+}
+.giftIconWrapper {
+	text-align: center;
+}
+.buttonWrapper {
+	display: flex;
+	justify-content: center;
+	position: relative;
+}
+.closed {
+	transition: opacity .3s ease;
+}
+.closedShowed {
+	opacity: 1;
+}
+.closedHide {
+	opacity: 0;
+}
+.opened {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity .3s ease;
+}
+.openedHide {
+	opacity: 0;
+}
+.openedShowed {
+	opacity: 1;
+}
+.giftBox {
+	z-index: 2;
+	position: relative;
+}
+.confeti {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+	animation-duration: 1.5s;
+	animation-name: slideUp;
+	animation-iteration-count: infinite;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translate(-50%, 0%);
+	}
+
+	to {
+		transform: translate(-50%, -100%);
+	}
+}

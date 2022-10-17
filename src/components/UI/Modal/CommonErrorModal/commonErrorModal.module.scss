@@ -1,0 +1,22 @@
+@import "src/common";
+.errorBlock{
+  color: $text;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 5px;
+}
+.errors{
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.icon{
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+.bottomErrors{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}

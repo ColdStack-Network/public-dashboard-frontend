@@ -1,0 +1,200 @@
+@import "src/common";
+
+/*
+.table{
+  width: 100%;
+}
+
+.tableRow{
+  width: 100%;
+  background: white;
+  padding: 20px 12px;
+  height: 64px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $border;
+}
+.tableTd{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: $textSecondary;
+  flex-shrink: 0;
+  padding: 0 12px;
+}
+
+
+.tableTdCenter{
+  text-align: center;
+}
+
+.tableHeadRow{
+  margin-bottom: 16px;
+  background: transparent;
+  height: auto;
+  border: none;
+  padding: 0;
+}
+.tableHeadItem{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: $textTh;
+  padding-bottom: 8px;
+}
+
+
+.tableBuckets .tableRow .tableTd:nth-child(1){
+  flex-basis: 4.3%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(2){
+  flex-basis: 17.4%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(3){
+  flex-basis: 17.4%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(4){
+  flex-basis: 11.2%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(5){
+   flex-basis: 9.9%;
+ }
+
+.tableBuckets .tableRow .tableTd:nth-child(6){
+  flex-basis: 6.5%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(7){
+  flex-basis: 18.6%;
+}
+.tableBuckets .tableRow .tableTd:nth-child(8){
+  flex-basis: 6.7%;
+}
+*/
+
+
+.scroll{
+  overflow: auto;
+}
+
+.scroll::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px #ECEEF5;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #646A81;
+  border: 4px solid #F5F5F5;
+}
+.tableWrapper{
+  position: relative;
+}
+
+.table{
+  display: table;
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: separate;
+  border-spacing: 0px 8px;
+}
+
+.tableRow{
+  width: 100%;
+  background: white;
+  padding: 20px 0;
+  height: 64px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: table-row;
+}
+.tableTd{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: $textSecondary;
+  display: table-cell;
+  border: 1px solid $border;
+  border-right: none;
+  border-left: none;
+  vertical-align: middle;
+  padding: 10px 12px;
+  max-width: 300px;
+}
+
+.tableHeadItem:first-child{
+  padding-left: 24px;
+}
+.tableTd:first-child{
+  border-radius: 10px 0 0 10px;
+  border: 1px solid $border;
+  border-right: none;
+  padding-left: 24px;
+}
+
+.tableTdCenter{
+  text-align: center;
+}
+.tableTd:last-child{
+  border-radius: 0 10px 10px 0;
+  border: 1px solid $border;
+  border-left: none;
+  padding-right: 24px;
+}
+.tableHeadItem:last-child{
+  padding-right: 24px;
+}
+
+.tableHeadRow{
+  margin-bottom: 16px;
+  display: table-row;
+}
+.tableHeadItem{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: $textTh;
+  display: table-cell;
+  padding: 0 12px 9px 12px;
+  vertical-align: middle;
+}
+
+.accessKey_key{
+  font-weight: 600;
+}
+.accessKey_status_active{
+  color: $primary
+}
+.accessKey_status_inactive{
+  color: $error
+}
+.folder{
+  color: $secondary;
+  text-decoration: underline;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}

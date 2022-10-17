@@ -1,0 +1,108 @@
+@import "src/common";
+
+.container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #D9E1FF;
+  padding: 28px 24px;
+  @media (max-width: 500px) {
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+.container.containerUnread {
+  background: $inpBg;
+}
+
+.left {
+  flex-grow: 1;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  @media (max-width: 500px) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.messageIcon {
+  height: 24px;
+  margin-right: 16px;
+}
+
+.label {
+  margin-right: 16px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: white;
+  height: 16px;
+  padding: 0px 9px;
+  display: flex;
+}
+
+.label:last-child {
+  margin-right: 8px;
+}
+
+.labelCategory {
+  background: $secondary;
+  @media (max-width: 500px) {
+    margin-bottom: 10px;
+  }
+}
+
+.labelClosed {
+  background: $error;
+  margin-right: 8px;
+}
+
+.labelNewMessage {
+  background: $primary;
+  margin-right: 8px;
+}
+
+.text {
+  color: $text;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.date {
+  color: $text;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  @media (max-width: 500px) {
+    color: $textSecondary;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.text.textUnread {
+  color: $text;
+}
+
+.delete {
+  margin-left: 24px;
+  height: 24px;
+  webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:hover {
+    cursor: pointer
+  }
+  @media (max-width: 500px) {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    &:hover {
+      cursor: auto;
+    }
+  }
+}

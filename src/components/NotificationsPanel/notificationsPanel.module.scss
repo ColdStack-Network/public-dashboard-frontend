@@ -1,0 +1,112 @@
+@import "src/common";
+
+.emptyNotifications{
+  display: flex;
+  height: 346px;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #5A5D65;
+  text-align: center;
+  padding: 20px;
+}
+
+.dropdownPanel{
+  background: white;
+  border: 1px solid $border;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: absolute;
+  right: 143px;
+  top: 100%;
+  z-index: 100;
+  width: 322px;
+  max-width: 100%;
+  @media (max-width: 767.9px) {
+    right: 15px
+  }
+  @media (max-width: 374.9px) {
+    right: 0
+  }
+}
+
+.labelNotification{
+  display: flex;
+  background: $primary;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  align-items: center;
+  text-align: center;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+.itemTopRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.itemDate{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: $text;
+  margin-right: 15px;
+}
+
+.itemText{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: $text;
+}
+
+.itemNotification{
+  display: block;
+  margin-bottom: 8px;
+  padding: 16px 24px ;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.itemNotificationOpen{
+  background: $inpBg;
+}
+
+.seeAllContainer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.seeAllText{
+  color: $secondary;
+  margin-right: 8px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+}
+.seeAllIcon{
+
+}
+
+.itemLeft{
+  display: flex;
+  align-items: center;
+}

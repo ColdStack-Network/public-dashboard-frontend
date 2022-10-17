@@ -1,0 +1,61 @@
+@import "src/common";
+
+.footer {
+  display: flex;
+  @media (max-width: 374.9px) {
+    justify-content: flex-end;
+  }
+}
+
+.wrapBtn1 {
+  margin-right: 24px;
+  @media (max-width: 374.9px) {
+    margin-right: 10px;
+  }
+}
+.wrapBtn1, .wrapBtn2{
+  @media (max-width: 374.9px){
+    & button{
+      width: 115px;
+    }
+  }
+}
+
+.item {
+  margin-bottom: 24px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.pendingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.pendingIcon {
+  margin-bottom: 33px;
+  & svg{
+    display: block;
+  }
+}
+
+.pendingTitle {
+  color: #000000;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.pendingSubtitle {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  color: $textSecondary;
+  text-align: center;
+}

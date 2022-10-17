@@ -1,0 +1,155 @@
+@import "src/common";
+
+.layout{
+  display: flex;
+}
+.sidebarWrap{
+  width: 248px;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+  @include animationSidebar ();
+  @media (min-width: 768px) and (max-width: 1439.9px) {
+    width: 80px;
+    overflow: hidden;
+    transition: none;
+  }
+  @media (max-width: 767.9px) {
+    width: 100%;
+  }
+}
+.sidebarWrapCollapsed{
+  width: 80px;
+  overflow: hidden;
+  @include animationSidebar ();
+  @media (max-width: 767.9px) {
+    display: block;
+    width: 100%;
+  }
+}
+.sidebarWrapCollapsedTablet{
+
+  @media (min-width: 768px) and (max-width: 1439.9px) {
+    width: 80px;
+    overflow: hidden;
+    @include animationSidebar ();
+    display: block;
+  }
+}
+.sidebarWrapCollapsedMobile{
+  @media (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.rightWrap{
+  position: relative;
+  flex-grow: 1;
+  padding-left: 248px;
+  padding-top: 80px;
+  min-height: 100vh;
+  background: $bgInput;
+  display: flex;
+  flex-direction: column;
+  @include animationSidebar ();
+  @media (min-width: 768px) and (max-width: 1439.9px) {
+    padding-left: 80px;
+    transition: none;
+    width: 100%;
+  }
+  @media (max-width: 767.9px) {
+    padding-left: 0;
+  }
+}
+.rightWrapCollapsed{
+  padding-left: 80px;
+  @include animationSidebar ();
+  @media (min-width: 768px) and (max-width: 1439.9px) {
+    padding-left: 80px;
+    transition: none;
+  }
+  @media (max-width: 767.9px) {
+    padding-left: 0;
+    transition: none;
+  }
+}
+.rightWrapCollapsedTablet{
+  @media (min-width: 768px) and (max-width: 1439.9px) {
+    padding-left: 80px;
+    transition: none;
+  }
+}
+.rightPart{
+  width: 100%;
+  max-width: 1192px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+}
+.content{
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  @media(max-width: 1439.9px){
+    padding: 24px;
+  }
+  @media(max-width: 767.9px){
+    padding: 24px 15px;
+  }
+
+}
+
+.layoutAuth{
+  display: flex;
+  background: $bgInput;
+}
+
+.sidebarAuth{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 248px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  background-position: center!important;
+  background-image: url("../../images/auth.png");
+  padding: 24px 0 0 16px;
+
+  @media (max-width: 1439.9px) {
+    display: none;
+  }
+}
+.rightAuth{
+  padding: 220px 100px 100px 376px;
+  @media (max-width: 1439.9px) {
+    padding: 0 39px 100px;
+  }
+  @media (max-width: 767.9px) {
+    padding: 0 15px 15px;
+  }
+}
+
+.mobileLogo{
+  display: none;
+  @media (max-width: 1439.9px) {
+    display: block;
+    padding-top: 24px;
+    margin-bottom: 169px;
+  }
+  @media (max-width: 767.9px) {
+    margin-bottom: 70px;
+  }
+}
+
+.headerAuth{
+  margin-bottom: 148px;
+}

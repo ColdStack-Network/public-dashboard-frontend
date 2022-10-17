@@ -1,0 +1,150 @@
+@import "src/common";
+
+.pageTitle {
+  margin-bottom: 40px;
+  line-height: 48px;
+}
+
+.blocksRow {
+  display: flex;
+}
+
+
+.col1 {
+  flex-basis: calc(68% - 24px);
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+
+.col2 {
+  flex-basis: 32%;
+  flex-grow: 1;
+}
+
+@media (max-width: 1023.9px) {
+  .blocksRow {
+    display: block;
+  }
+  .col1 {
+    margin-bottom: 32px;
+    margin-right: 0px;
+  }
+}
+
+.blockInfo {
+  height: 100%;
+}
+
+.blockHeaderRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blockSubtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 14px;
+  color: $textSecondary;
+}
+
+.wrapEdit {
+  height: 24px;
+  cursor: pointer
+}
+
+.rowBlock {
+  display: flex;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+@media (max-width: 532px) {
+  .rowBlock {
+    display: block;
+  }
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $textSecondary;
+  margin-right: 16px;
+  flex-basis: 18%;
+  max-width: 130px;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.value {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $textSecondary;
+}
+
+@media (max-width: 450px) {
+  .userWallet {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
+.wrapperEmailForms {
+  transition: all 0.1s;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 248px;
+}
+
+.containerEmailForms {
+  position: absolute;
+  display: flex;
+  flex-shrink: 0;
+  width: 400%;
+  height: 248px;
+}
+
+.step0 {
+  transform: translateX(0);
+}
+
+.step1 {
+  transform: translateX(-25%);
+}
+
+.step2 {
+  transform: translateX(-50%);
+}
+
+.step3 {
+  transform: translateX(-75%);
+}
+
+.emailForm {
+  transition: all 0.2s;
+  height: 248px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emailFormButton {
+  align-self: flex-end;
+  flex-grow: 1;
+  justify-content: flex-end;
+  display: flex;
+  align-items: flex-end;
+}
+
+.disable {
+  background: #1FCF90;
+}
+
+.wrapperInput {
+  margin-bottom: 24px;
+}
+
+

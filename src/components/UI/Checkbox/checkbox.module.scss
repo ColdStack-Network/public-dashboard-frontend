@@ -1,0 +1,28 @@
+@import "src/common";
+.container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.disabled{
+  cursor: default;
+}
+.input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.label{
+  margin-left: 8px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  color: $textSecondary;
+}

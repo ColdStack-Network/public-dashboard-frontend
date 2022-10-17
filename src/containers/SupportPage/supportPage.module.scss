@@ -1,0 +1,12 @@
+@import "src/common";
+
+.titleRowSupport{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 56px;
+}
+.pageTitle{
+  line-height: 48px;
+}

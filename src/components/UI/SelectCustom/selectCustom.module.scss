@@ -1,0 +1,90 @@
+@import "src/common";
+.container{
+  position: relative;
+  & *:hover {
+    cursor: pointer;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.input{
+  width: 100%;
+  outline: none;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  height: 48px;
+  padding: 0 36px 0 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: $text;
+  border: 1px solid $border;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+  background: $bgInput;
+  @include placeholder()
+}
+.inputsmall{
+  height: 40px;
+}
+.list{
+  position: absolute;
+  z-index: 2;
+  top: calc(100% - 5px);
+  width: 100%;
+  min-height: 30px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid $border;
+  border-top: none;
+  padding: 7px 0;
+}
+.listItemElement{
+  padding: 7px 20px;
+  font-size: 14px;
+  max-width: 100%;
+  overflow: hidden;
+  color: $text;
+  background: white;
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.listItemElementActive{
+  background: $bgInput;
+}
+.arrowIcon{
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 1;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.arrowIconsmall{
+  right: 8px;
+  top: 8px;
+}
+.error{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+.errorText{
+  color: $error;
+  font-size: 12px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+}
+
+.errIcon{
+  margin-right: 8px;
+}

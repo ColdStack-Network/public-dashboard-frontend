@@ -1,0 +1,92 @@
+@import "src/common";
+
+.note{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: $textSecondary;
+  margin-bottom: 33px;
+}
+.rowAccessKey{
+  margin-bottom: 8px;
+}
+.labelKey{
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: $textSecondary;
+  margin-right: 16px;
+}
+.btnShowHide{
+  display: inline-block;
+  color: $secondary;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.itemKey{
+  margin-bottom: 26px;
+}
+.itemSecret{
+  margin-bottom: 48px;
+}
+.wrapBtnDownload{
+
+}
+.wrapBtn1{
+  margin-right: 24px;
+}
+.footer{
+  display: flex;
+  justify-content: flex-end;
+  @media (max-width: 374.9px) {
+    flex-wrap: wrap;
+  }
+}
+.footerSecond{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.wrapBtnDownload{
+  margin-right: 24px;
+  flex-grow: 1;
+  max-width: 172px;
+}
+
+.wrapBtnCopy{
+  flex-grow: 0;
+  position: relative;
+  &::after{
+    content: attr(data-tooltip-text);
+    display: block;
+    position: absolute;
+    z-index: 3;
+    top: -20px;
+    font-weight: normal;
+    right: 5px;
+    color: #199954;
+    font-size: 12px;
+  }
+}
+.btnContent{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 11px;
+}
+.btnIcon{
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}

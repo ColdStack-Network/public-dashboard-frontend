@@ -1,0 +1,64 @@
+@import "src/common";
+.title{
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 36px;
+  font-family: 'Inter', sans-serif;
+  color: $text;
+  margin-bottom: 16px;
+  @media (max-width: 767.9px) {
+    margin-bottom: 31px;
+  }
+}
+.subtitle{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  color: $textSecondary;
+  max-width: 360px;
+  margin-bottom: 64px;
+  @media (max-width: 1439.9px) {
+    max-width: 100%;
+    margin-bottom: 74px;
+  }
+  @media (max-width: 767.9px) {
+    margin-bottom: 41px;
+  }
+}
+.link{
+  color: $secondary;
+  margin-bottom: 64px;
+  &:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+.wallets{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -30px;
+  & > div {
+    margin-right: 24px;
+    margin-bottom: 24px;
+    @media (max-width: 1439.9px) {
+      margin-right: 30px;
+      margin-bottom: 44px;
+    }
+    @media (max-width: 767.9px) {
+      margin-right: 20px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 374.9px) {
+      margin-right: 0;
+      margin-bottom: 36px;
+    }
+  }
+  @media (max-width: 767.9px) {
+    margin-right: 0px;
+  }
+}
+
+.label {
+  margin-left: 10px;
+}

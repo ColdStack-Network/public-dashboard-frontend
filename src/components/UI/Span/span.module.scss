@@ -1,0 +1,41 @@
+@import "src/common";
+
+.spanaccent {
+  color: $error;
+}
+
+.spantextSecondary {
+  color: $textSecondary;
+}
+
+.spansmall {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.spanmiddle {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.span400 {
+  font-weight: 400;
+}
+
+.span500 {
+  font-weight: 500;
+}
+
+.span600 {
+  font-weight: 600 !important;
+}
+
+
+
+
+
+
+
+
+
+

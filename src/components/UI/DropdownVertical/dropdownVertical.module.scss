@@ -1,0 +1,52 @@
+@import "src/common";
+.container{
+  padding: 7px 0;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.dropdown{
+  width: 160px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: white;
+  border: 1px solid $border;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  top: 100%;
+}
+
+.item{
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.icon{
+  margin-right: 15px;
+  width: 24px;
+}
+.text{
+  color: $textSecondary;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+}
+.textAccent{
+  color: $accent
+}
+.section{
+  padding: 7px 0
+}
+.border{
+  width: 100%;
+  border-top: 1px solid $border;
+  margin: 7px 0
+}

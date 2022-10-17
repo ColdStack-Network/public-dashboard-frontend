@@ -1,0 +1,73 @@
+@import "src/common";
+.footer{
+  display: flex;
+  @media (max-width: 374.9px) {
+    justify-content: flex-end;
+  }
+}
+.wrapBtn1{
+  margin-right: 24px;
+  @media (max-width: 374.9px) {
+   margin-right: 10px;
+  }
+}
+.wrapBtn1, .wrapBtn2{
+  @media (max-width: 374.9px){
+    & button{
+      width: 115px;
+    }
+  }
+}
+
+.item{
+  margin: 0 -5px;
+  //margin-bottom: 16px;
+  display: flex;
+}
+.item:last-child{
+  margin-bottom: 0;
+}
+.label{
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  color: $textSecondary;
+  //width: auto;
+  //flex-shrink: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 48px;
+  flex: 1 1 auto;
+  margin: 0 5px;
+  width: calc(50% - 24px);
+}
+
+.newInputMetadata {
+  display: flex;
+   margin: 0 -5px;
+  margin-bottom: 16px;
+}
+
+.newInputMetadata > div {
+  flex: 1 1 auto;
+  margin: 0 5px;
+}
+
+.modalHeadItem{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $textTh;
+  vertical-align: middle;
+}
+
+.hideButton {
+   cursor: auto;
+  background-color: transparent;
+  width: 48px;
+  height: 48px;
+  margin: 0 !important;
+  flex: auto;
+}

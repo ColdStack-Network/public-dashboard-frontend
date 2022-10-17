@@ -1,0 +1,16 @@
+@import "src/common";
+
+.footer{
+  display: flex;
+  @media (max-width: 374.9px) {
+    flex-wrap: wrap;
+  }
+}
+.wrapBtn1{
+  margin-right: 24px;
+  @media (max-width: 374.9px) {
+    margin-right: 0;
+    order: 2;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,62 @@
+@import "src/common";
+
+.container{
+  width: 100%;
+  background: $cardBg;
+  border: 1px solid $border;
+  border-radius: 10px 10px 5px 5px;
+  overflow: hidden;
+  &::after{
+    content: "";
+    display: block;
+    height: 8px;
+    width: 100%;
+    background: $border;
+  }
+}
+
+.inner{
+  padding: 24px;
+}
+.titleCardRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+.title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: $textSecondary;
+  margin-right: 30px;
+}
+.arrow{
+  position: relative;
+  top: 4px;
+}
+
+.bottomRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.number{
+  display: flex;
+  align-items: flex-start;
+}
+.numberValue{
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 36px;
+  color: $text;
+  margin-right: 8px;
+}
+.numberPostfix{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  color: $text;
+}

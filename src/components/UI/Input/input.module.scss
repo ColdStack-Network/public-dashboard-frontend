@@ -1,0 +1,131 @@
+@import "src/common";
+
+.input {
+  width: 100%;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  height: 48px;
+  padding: 0 24px;
+  color: $text;
+  border: 1px solid $border;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+  background: $bgInput;
+  @include placeholder();
+
+  &:disabled {
+    background: $inputDisabled !important;
+  }
+}
+
+.container {
+  position: relative;
+  &::after{
+    content: attr(data-tooltip-text);
+    display: block;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    font-weight: normal;
+    right: 5px;
+    color: #199954;
+    font-size: 12px;
+  }
+
+}
+.containerRow {
+  display: flex;
+}
+
+.inputError {
+  border: 1px solid $error;
+}
+
+.inputSuccess {
+}
+
+.completedText {
+  color: $primary
+}
+
+.inputDisabled {
+  background: $inputDisabled;
+  color: #c4bbbb;
+  cursor: not-allowed;
+  &.disabledBright{
+    color: #333;
+    background:  #F4F6FD!important;
+  }
+}
+
+.inputCopyToClipboard {
+  padding: 0 48px 0 24px;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.errorText {
+  color: $error;
+  font-size: 12px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+}
+
+.verifyText {
+  color: $primary;
+  font-size: 12px;
+  line-height: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+}
+
+.errIcon {
+  margin-right: 8px;
+}
+
+.wrapperLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.maxColor {
+  color: $error;
+  cursor: pointer;
+}
+
+.wrapperInput {
+  position: relative;
+}
+
+.typeValue {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.iconButton {
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+}

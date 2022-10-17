@@ -1,0 +1,23 @@
+@import "src/common";
+.selectLabel{
+  color: $textSecondary;
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.inputWrapper {
+  margin-bottom: 16px;
+}
+
+.successText{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: $textSecondary;
+  margin-top: 30px;
+  margin-bottom: 102px;
+}

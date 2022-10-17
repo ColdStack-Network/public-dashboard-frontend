@@ -1,0 +1,66 @@
+@import "src/common";
+
+.dropdownPanel{
+  background: white;
+  border: 1px solid $border;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: absolute;
+  left: 88px;
+  top: 100%;
+  z-index: 100;
+  width: 360px;
+  max-width: 100%;
+  @media (max-width: 1440px) {
+    left: 25px;
+    //width: 420px;
+  }
+  @media (max-width: 1024px) {
+    left: 25px;
+    width: 320px;
+  }
+  @media (max-width: 767.9px) {
+    //left: 10px;
+    left: 0;
+    //width: calc(100% - 20px);
+    width: 100%;
+  }
+  @media (max-width: 374.9px) {
+    left: 0;
+  }
+}
+
+.searchBox {
+  padding: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  &FilePath {
+    font-size: 12px;
+    font-style: italic;
+    color: #c0c0c0;
+  }
+  &FileName {
+    padding: 0px 5px 10px 0;
+    font-size: 14px;
+  }
+  &Item {
+    padding-left: 5px;
+    &:hover {
+      cursor: pointer;
+      background-color: #f9f9f9;
+      border-radius: 3px;
+    }
+  }
+}
+
+.link{
+  all: unset;
+
+  .searchBoxFileName {
+    color: $secondary;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

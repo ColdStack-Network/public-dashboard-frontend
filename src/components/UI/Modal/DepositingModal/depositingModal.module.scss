@@ -1,0 +1,66 @@
+@import "src/common";
+
+.footer {
+  display: flex;
+  @media (max-width: 374.9px) {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+.wrapBtn1 {
+  margin-right: 24px;
+  @media (max-width: 374.9px) {
+    margin-right: 0;
+    order: 2;
+    margin-top: 15px;
+  }
+}
+
+.item {
+  margin-bottom: 24px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.pendingWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pendingIcon {
+  margin-bottom: 28px;
+}
+
+.pendingTitle {
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.pendingSubtitle {
+  font-size: 14px;
+  line-height: 16px;
+  color: $textSecondary;
+}
+
+.description {
+  display: flex;
+  column-gap: 24px;
+  row-gap: 24px;
+}
+
+@media (max-width: 532px) {
+  .description {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.qrcodeWrapper {
+  width: 180px;
+}

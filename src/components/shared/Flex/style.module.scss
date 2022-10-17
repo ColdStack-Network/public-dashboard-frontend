@@ -1,0 +1,29 @@
+@import "src/common";
+
+.dFlex{
+  display: flex;
+}
+
+.justifyContent {
+  &Left {
+    justify-content: left;
+  }
+  &Center {
+    justify-content: center;
+  }
+  &FlexEnd {
+    justify-content: flex-end;
+  }
+}
+
+.alignItems {
+  &FlexStart {
+    align-items: flex-start;
+  }
+  &Center {
+    align-items: center;
+  }
+  &FlexEnd {
+    align-items: flex-end;
+  }
+}

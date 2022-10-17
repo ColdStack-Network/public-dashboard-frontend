@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+$primary: #1FCF90;
+$primaryHover: #28AB7C;
+$secondary: #0053F1;
+$secondaryHover: #154DB8;
+$menuHover: #1C67F6;
+$accent: #FF002E;
+$accentHover: #CC3E36;
+$text: #333333;
+$white: #ffffff;
+$textSecondary: #5A5D65;
+$textTh: #9296A5;
+$drag: #B4B9C6;
+$grey: #A6B4CE;
+$greyHover: #909CB5;
+$bg: #E5E5E5;
+$bgInput: #F4F6FD;
+$bgInputHover: #E2E5F0;
+$placeholder: #CCD2E3;
+$menuItem: #CCD2E3;
+$menuGroup: #84A1DA;
+$border: #D9E1FF;
+$inpBg: #FBFCFF;
+$error: #E9493F;
+$cardBg: #FAFBFE;
+$transparent: transparent;
+$transparentHover: transparent;
+$inputDisabled: #E8E9EA;
+
+html, body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #F4F6FD;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@mixin animationSidebar () {
+  transition: all 0.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.pageTitleCommon{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: $textSecondary;
+}
+.headerRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media (max-width: 767.9px) {
+    display: block;
+  }
+}
+.titleRow{
+  @media (max-width: 767.9px) {
+    margin-bottom: 32px;
+  }
+}
+.headerRowCenter{
+  align-items: center;
+}
+
+@mixin placeholder (){
+  ::-webkit-input-placeholder {
+    color: $placeholder;
+  }
+
+  :-moz-placeholder {
+    color: $placeholder;
+  }
+
+  ::-moz-placeholder {
+    color: $placeholder;
+  }
+
+  :-ms-input-placeholder {
+    color: $placeholder;
+  }
+
+  ::-ms-input-placeholder {
+    color: $placeholder;
+  }
+
+  ::placeholder {
+    color: $placeholder;
+  }
+}
+
+.labelInput{
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: $textSecondary;
+  margin-bottom: 8px;
+}
+
+.wrapper{
+  position: relative;
+}
+
+.cursor{
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+.block{
+  background: white;
+  border: 1px solid $border;
+  border-radius: 10px;
+}
+
+.blockHeader{
+  padding: 24px;
+  border-bottom: 1px solid $border;
+}
+.blockTitle{
+  color: $textSecondary;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.blockContent{
+  padding: 24px;
+  & .blockItemRow:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.headerBlockTabsTitleRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $border;
+  padding-left: 24px;
+  padding-right: 24px;
+  @media (max-width: 374.9px){
+    padding: 0 15px;
+  }
+}
+
+.headerBlockTabs{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: $textSecondary;
+  @media (max-width: 374.9px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.tabs{
+  display: flex;
+  & .tab:last-child{
+    margin-right: 0;
+  }
+}
+.tab{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 140px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -2.5px;
+  border-bottom: 3px solid transparent;
+  margin-right: 5px;
+  color: $textSecondary;
+  &:hover{
+    cursor: pointer
+  }
+  @media(max-width: 767.9px){
+    width: 80px;
+    height: 60px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+}
+.tab.tabActive{
+  color: $secondary;
+  border-bottom: 3px solid $secondary;
+}

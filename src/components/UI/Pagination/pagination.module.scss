@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  justify-content: flex-end;
+  & > div:first-child{
+    margin-right: 24px;
+    @media(max-width: 767.9px){
+      margin-right: 12px;
+    }
+
+  }
+}

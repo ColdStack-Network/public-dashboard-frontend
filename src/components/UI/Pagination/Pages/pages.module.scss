@@ -1,0 +1,30 @@
+@import "src/common";
+
+.container{
+  display: flex;
+}
+
+.button{
+  width: 24px;
+  height: 24px;
+  border: 1px solid $border;
+  background: white;
+  text-align: center;
+  color: $textSecondary;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 3px;
+  margin-right: 5px;
+  &:last-child{
+    margin-right: 0;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.buttonActive {
+  background: $bgInput;
+}

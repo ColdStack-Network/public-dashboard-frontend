@@ -1,0 +1,47 @@
+@import "src/common";
+
+.p {
+  margin-top: 0 !important;
+  margin-bottom: 11px !important;
+}
+
+.paccent{
+  color: $error;
+}
+
+.ptextSecondary {
+  color:$textSecondary;
+}
+
+.psmall {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.pmiddle {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+.p400 {
+  font-weight: 400;
+}
+
+.p500 {
+  font-weight: 500;
+}
+
+.p600 {
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
