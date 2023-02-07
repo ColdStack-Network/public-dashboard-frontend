@@ -1,0 +1,93 @@
+@import "src/common";
+
+.countWrapper {
+  position: relative;
+}
+
+.overallCapacityTitle {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 50px;
+  color: #637499;
+  @media(max-width: 1919px) {
+    font-size: 32px;
+  }
+  @media(max-width: 1439px) {
+    font-size: 28px;
+  }
+  @media(max-width: 1199px) {
+    font-size: 24px;
+  }
+  @media(max-width: 767px) {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+
+.overallCapacityValue {
+  font-weight: 700;
+  font-size: 94px;
+  line-height: 112%;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  color: $darkGrayText;
+  @media(max-width: 1919px) {
+    font-size: 78px;
+
+     }
+  @media(max-width: 1439px) {
+    font-size: 68px;
+  }
+  @media(max-width: 1199px) {
+    font-size: 6.3vw;
+  }
+  @media(max-width: 767px) {
+    font-size: 7vw;
+  }
+   @media(max-width: 532px) {
+    font-size: 6.5vw;
+  }
+}
+
+.overallCapacityValueLittle {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 112%;
+  text-align: center;
+  text-transform: uppercase;
+  @media(max-width: 1919px) {
+    font-size: 40px;
+  }
+  @media(max-width: 1439px) {
+    font-size: 30px;
+  }
+  @media(max-width: 1199px) {
+    font-size: 20px;
+  }
+  @media(max-width: 767px) {
+    font-size: 12px;
+  }
+
+}
+
+.countUp {
+  white-space: nowrap;
+
+}
+
+.countUpVisible {
+ position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.countUpHide {
+  opacity: 0;
+  z-index: -1;
+}

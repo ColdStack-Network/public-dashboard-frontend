@@ -1,0 +1,71 @@
+@import "src/common";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  max-width: 416px;
+}
+
+.result {
+  display: flex;
+  background-color: rgba(110, 126, 157, 0.04);
+  padding: 24px 16px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-radius: 5px;
+}
+.resultsCol {
+  display: flex;
+  flex-direction: column;
+}
+.resultTitle {
+  color: $textSecondary;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}
+.resultValue {
+  font-family: "Outfit";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+.apy {
+  color: $primary;
+}
+.income {
+  color: $darkGrayText;
+}
+.extra {
+  display: flex;
+}
+.extraValue,
+.max {
+  font-size: 14px;
+  line-height: 24px;
+}
+.extraValue {
+  margin-right: 8px;
+  color: $textSecondary;
+}
+.max {
+  cursor: pointer;
+  color: $secondary;
+}
+.formControl {
+  margin-bottom: 24px;
+  display: flex;
+  width: 100%;
+}
+.formControlDays {
+  justify-content: space-around;
+  margin-bottom: 48px;
+}
+
+.footer {
+  display: flex;
+}
+.cancel {
+  margin-right: 24px;
+}

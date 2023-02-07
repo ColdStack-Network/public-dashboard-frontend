@@ -34,15 +34,14 @@
 .list{
   position: absolute;
   z-index: 2;
-  top: calc(100% - 5px);
+  top: calc(100% + 10px);
   width: 100%;
   min-height: 30px;
   max-height: 200px;
   overflow-y: auto;
   background: white;
   border: 1px solid $border;
-  border-top: none;
-  padding: 7px 0;
+  border-radius: 5px;
 }
 .listItemElement{
   padding: 7px 20px;
@@ -57,7 +56,8 @@
 }
 
 .listItemElementActive{
-  background: $bgInput;
+  background-color: #f9f9f9;
+  border-radius: 3px;
 }
 .arrowIcon{
   position: absolute;
@@ -88,3 +88,22 @@
 .errIcon{
   margin-right: 8px;
 }
+
+.labelInput {
+  position: relative;
+  display: inline-block;
+}
+
+
+.inputRequired:before {
+  position: absolute;
+  content: " ";
+  width: 4px;
+  height: 4px;
+  background-color: #E9493F;
+  border-radius: 50%;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

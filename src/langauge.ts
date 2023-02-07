@@ -1,5 +1,3 @@
-const phrases = [
-  "Please install MetaMask"
-  ];
+const phrases = ["Please install MetaMask"];
 
 export default phrases;

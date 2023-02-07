@@ -1,10 +1,10 @@
 import BaseWallet from "./BaseWallet";
 
-import { WALLETS } from 'helpers/constants';
+import { WALLETS } from "helpers/constants";
 
 const { PORTIS } = WALLETS;
 
-class Portis extends BaseWallet{
+class Portis extends BaseWallet {
   constructor({ connector, library }) {
     super({ connector, library, name: PORTIS });
   }

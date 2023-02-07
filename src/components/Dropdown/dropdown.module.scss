@@ -1,0 +1,53 @@
+@import "src/common";
+
+.dropdown{
+  background: rgba(244, 246, 253, 1);
+  border: 1px solid $border;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text;
+  font-weight: 500;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &Body {
+    background: white;
+    // padding: 10px;
+    border: 1px solid $border;
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 10px;
+    z-index: 100;
+    width: 360px;
+    max-width: 100%;
+    margin-left: 0;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px -10px #333;
+  }
+
+  &Item {
+    height: 30px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f9f9f9;
+      border-radius: 3px;
+    }
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}

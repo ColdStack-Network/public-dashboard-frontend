@@ -1,6 +1,6 @@
 import BaseWallet from "./BaseWallet";
 
-import { WALLETS } from 'helpers/constants';
+import { WALLETS } from "helpers/constants";
 
 const { METAMASK } = WALLETS;
 
@@ -20,7 +20,8 @@ class Metamask extends BaseWallet {
       return false;
     }
 
-    return this.connector.isAuthorized()
+    return this.connector
+      .isAuthorized()
       .then((isAuthorized: boolean) => isAuthorized)
       .catch((err) => false);
   }

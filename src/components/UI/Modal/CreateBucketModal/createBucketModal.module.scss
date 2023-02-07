@@ -1,26 +1,30 @@
-.footer{
+.footer {
   display: flex;
   @media (max-width: 374.9px) {
     justify-content: flex-end;
   }
 }
-.wrapBtn1{
+.wrapBtn1 {
   margin-right: 24px;
   @media (max-width: 374.9px) {
-      margin-right: 10px;
+    margin-right: 10px;
   }
 }
-.wrapBtn1, .wrapBtn2{
-  @media (max-width: 374.9px){
-    & button{
+.wrapBtn1,
+.wrapBtn2 {
+  @media (max-width: 374.9px) {
+    & button {
       width: 115px;
     }
   }
 }
 
-.item{
+.item {
   margin-bottom: 24px;
 }
-.item:last-child{
+.item:last-child {
   margin-bottom: 0;
+}
+.wrap {
+  max-width: 480px;
 }

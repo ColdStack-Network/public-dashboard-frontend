@@ -1,0 +1,17 @@
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.step {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.img {
+  margin-bottom: 0.5rem;
+}
+.modal {
+  max-width: 480px;
+}

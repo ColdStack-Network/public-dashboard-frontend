@@ -1,34 +1,28 @@
-import React from 'react'
-import Modal from "../Modal";
-import SvgTimeAttack from '../../../../icons/TimeAtack';
+import React from "react";
+import { CoreModal } from "../Modal";
+import SvgTimeAttack from "../../../../icons/TimeAtack";
 import style from "./deleteFilesProcessModal.module.scss";
 
 interface IDeleteFilesProcessModal {
-	visible: boolean;
-	onClose: () => void,
+  visible: boolean;
+  onClose: () => void;
 }
 
-
-const DeleteFilesProcessModal = ({
-	                                 visible = false,
-	                                 onClose
-                                 }: IDeleteFilesProcessModal) => {
-
-	return (
-		<Modal title={"Deleting objects"} closeOutClick={false} onClose={onClose} visible={visible}
-		>
-			{() => {
-				return <div>
-					<div className={style.center}>
-						<SvgTimeAttack />
-					</div>
-					<div>
-						This can take from couple of seconds to several minutes
-					</div>
-				</div>
-			}}
-		</Modal>
-	)
+export const DeleteFilesProcessModal = ({ visible = false, onClose }: IDeleteFilesProcessModal) => {
+  return (
+    <CoreModal
+      className={style.wrap}
+      title="Deleting objects"
+      closeOutClick={false}
+      onClose={onClose}
+      visible={visible}
+    >
+      <div>
+        <div className={style.center}>
+          <SvgTimeAttack />
+        </div>
+        <div>This can take from couple of seconds to several minutes</div>
+      </div>
+    </CoreModal>
+  );
 };
-
-export default DeleteFilesProcessModal;

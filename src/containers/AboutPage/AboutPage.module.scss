@@ -1,0 +1,402 @@
+@import "src/common";
+
+// $md: 768px;
+// $lg: 1440px;
+// $xl: 1920px;
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0;
+
+  @media (min-width: $md) {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  @media (min-width: $lg) {
+    font-size: 64px;
+    line-height: 80px;
+  }
+}
+
+.text {
+  font-size: 18px;
+  line-height: 32px;
+  margin: 0;
+
+  &_gray {
+    color: $lightGreyText;
+  }
+
+  @media (min-width: $md) {
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../images/about/header-bg-xs.svg");
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  background-size: cover;
+  padding: 60px 0 0;
+
+  &__flyingGuy {
+    max-width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  .header__control {
+    margin-bottom: 81px;
+  }
+
+
+  @media (min-width: 1200px) {
+
+    &__flyingGuy {
+      max-width: none;
+      width: 560px;
+      flex-shrink: 0;
+    }
+    &__content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__textBlock {
+      max-width: 600px;
+    }
+    .header__control {
+      margin-bottom: 0;
+    }
+    &__title {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    &__text {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: $xl) {
+
+    &__flyingGuy {
+      width: 607px;
+    }
+  }
+}
+
+.whatDoWrapper {
+  width: 100%;
+  background-color: #fff;
+
+}
+
+.whatDo {
+  display: flex;
+  flex-direction: column;
+  padding: 160px 0;
+  column-gap: 40px;
+  @media (min-width: $lg) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media(max-width: 1919px) {
+    padding: 144px 0;
+    column-gap: 30px;
+  }
+  @media(max-width: 1439px) {
+    padding: 104px 0;
+  }
+  @media(max-width: 768px) {
+    padding: 80px 0;
+  }
+
+
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 20px;
+
+  &__image {
+    display: block;
+    height: 100%;
+  }
+
+  &__content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d9e1ff;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Outfit',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #333333;
+  }
+
+  &__text {
+    color: $lightGreyText;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 9px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $sm) {
+    &__content {
+      padding: 24px;
+    }
+  }
+
+  @media (min-width: $lg) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+  }
+}
+
+.ourBackground {
+  background: url("../../images/WavesOurBackgrounds.svg") repeat-x bottom center, linear-gradient(0deg, #f4f6fd -8.14%, #e9edfd 100%);
+  background-size: contain;
+  padding: 160px 0;
+  @media (max-width: 1919px) {
+    padding: 144px 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 104px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 0;
+  }
+}
+
+.wrapperBlocks {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 100px;
+
+  @media (max-width: 1199px) {
+    flex-direction: column;
+  }
+}
+
+.bullets {
+  background-color: #ffffff;
+}
+
+.peoplesBlock {
+  background: linear-gradient(180deg, #F4F6FD 0%, #E9EDFD 100%);
+  padding: 160px 0;
+  @media (max-width: 1919px) {
+    padding: 144px 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 104px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 0;
+  }
+}
+
+.peoplesWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 70px;
+
+  @media (max-width: 1199px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 60px;
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 40px;
+  }
+}
+
+.people {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 320px;
+  margin: auto;
+  height: 100%;
+}
+
+.peopleLD {
+  display: flex;
+  width: 137px;
+  height: 137px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 22px;
+  @media (max-width: 1199px) {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 38px;
+  }
+  @media (max-width: 767px) {
+    width: 115px;
+    height: 115px;
+    margin-bottom: 30px;
+  }
+}
+
+.logoLD {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  bottom: 0;
+  right: 0;
+  @media (max-width: 1199px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media (max-width: 767px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.description {
+  text-align: center;
+}
+
+.peopleName {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.peoplePosition {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  /* identical to box height, or 178% */
+
+  text-align: center;
+
+  color: #0053f1;
+  margin-bottom: 16px;
+}
+
+.decorLine {
+  width: 48px;
+  height: 2px;
+  display: block;
+  background-color: #1fcf90;
+  margin-bottom: 16px;
+}
+
+.description {
+  margin-bottom: 16px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.jobsBlock {
+  background-color: #ffffff;
+  padding: 160px 0;
+  @media (max-width: 1919px) {
+    padding: 144px 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 104px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 0;
+  }
+}
+
+.jobsBlockContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0053f1 url("../../images/WavesBlue.svg") no-repeat bottom center;
+  background-size: contain;
+  border-radius: 16px;
+
+  padding: 160px 0;
+  @media (max-width: 1919px) {
+    padding: 144px 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 104px 0;
+  }
+  @media (max-width: 767px) {
+
+    padding: 80px 20px;
+  }
+}
+
+.imageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 300px;
+  background: rgba(0, 83, 241, 0.04);
+  border-radius: 16px 16px 0px 0px;
+  @media (max-width: 767px) {
+    height: 200px;
+  }
+}
+
+.footerWrapper {
+  background-color: #ffffff;
+}

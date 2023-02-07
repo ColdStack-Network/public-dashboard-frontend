@@ -1,73 +1,77 @@
-export const processError = (error: any, method)=>{
+export const processError = (error: any, method) => {
   const code = error?.code;
   let result = "";
-  if (method === "createBucket"){
-    switch(code){
-      case "BucketAlreadyExists":{
+  if (method === "createBucket") {
+    switch (code) {
+      case "BucketAlreadyExists": {
         result = "Bucket already exists";
         break;
       }
-      case "InvalidBucketName":{
+      case "InvalidBucketName": {
         result = "Invalid bucket name";
         break;
       }
-      case "InvalidRequest":{
+      case "InvalidRequest": {
         result = "You can not have more than 100 buckets";
         break;
       }
-      default:{}
+      default: {
+      }
     }
   }
-  if (method === "renameBucket"){
-    switch(code){
-      case "BucketAlreadyExists":{
+  if (method === "renameBucket") {
+    switch (code) {
+      case "BucketAlreadyExists": {
         result = "Bucket already exists";
         break;
       }
-      case "InvalidBucketName":{
+      case "InvalidBucketName": {
         result = "Invalid bucket name";
         break;
       }
-      default:{}
+      default: {
+      }
     }
   }
-  if (method === "getObject"){
-    switch(code){
-      case "NoSuchKey":{
+  if (method === "getObject") {
+    switch (code) {
+      case "NoSuchKey": {
         result = "The requested object was not found";
         break;
       }
-      case "InternalError":{
+      case "InternalError": {
         result = "Internal Error";
         break;
       }
-      default:{}
+      default: {
+      }
     }
   }
-  if (method === "putObject"){
-    switch(code){
-      case "InternalError":{
+  if (method === "putObject") {
+    switch (code) {
+      case "InternalError": {
         result = "Internal Error";
         break;
       }
-      default:{}
+      default: {
+      }
     }
   }
 
-  if (result?.length === 0){
-    if (code?.length > 0){
+  if (result?.length === 0) {
+    if (code?.length > 0) {
       result = code;
     }
   }
 
   return result;
-}
+};
 
-export enum methods{
+export enum methods {
   createBucket = "createBucket",
   renameBucket = "renameBucket",
   getObject = "getObject",
-  putObject= "putObject"
+  putObject = "putObject",
 }
 
-export const defaultError = "Something went wrong."
+export const defaultError = "Something went wrong.";

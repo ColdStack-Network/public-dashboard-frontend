@@ -1,0 +1,185 @@
+@import "src/common";
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 60px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.1s;
+  display: inline-block;
+  width: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.wrapperWhite {
+  border: 2px solid #0053f1;
+  background-color: transparent;
+}
+
+.wrapperBlue {
+  background-color: rgba(0, 83, 241, 1);
+}
+
+.wrapperGreen {
+  background-color: #1fcf90;
+}
+
+.button {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  color: #0053f1;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 60px;
+  height: 48px;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  transition: all 0.1s;
+  z-index: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonSmall {
+  height: 48px;
+  width: 120px;
+}
+
+.wrapperSmall .buttonWhite {
+  height: 44px;
+}
+
+.buttonMedium {
+  height: 72px;
+  width: 240px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.buttonMedium .buttonWhite {
+  height: 68px;
+  width: 236px;
+}
+
+.buttonBig {
+  height: 72px;
+  width: 320px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  @media (max-width: 1199px) {
+    height: 56px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+.buttonBig .buttonWhite {
+  height: 68px;
+  width: 316px;
+  @media (max-width: 1199px) {
+    height: 52px;
+  }
+}
+
+.buttonWhite {
+  color: #0053f1;
+}
+
+.buttonWhite:hover {
+  color: #ffffff;
+}
+
+.buttonGreen {
+  color: #ffffff;
+}
+
+.buttonGreen:hover {
+  color: #ffffff;
+}
+
+.buttonBlue {
+  color: #ffffff;
+}
+
+.buttonBlue:hover {
+  color: #ffffff;
+}
+
+.backgroundRound {
+  width: 100%;
+  @include aspect-ratio(1, 1);
+  display: block;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.2s;
+  top: 50%;
+  left: 50%;
+  background-color: #0053f1;
+  z-index: 0;
+  transform: translate3d(-50%, 50%, 0) scale(0.5);
+}
+
+.backgroundRoundWhite {
+  background-color: #0053f1;
+}
+
+.backgroundRoundBlue {
+  background-color: #0053f1;
+  -webkit-box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+}
+
+.backgroundRoundGreen {
+  background-color: #22e5a0;
+  -webkit-box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 30px 15px rgba(255, 255, 255, 1);
+}
+
+.button.buttonHover ~ .backgroundRound {
+  animation: ani 0.25s;
+  animation-fill-mode: forwards;
+}
+
+.button.buttonLeave ~ .backgroundRound {
+  animation: ani2 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes ani {
+  from {
+    transform: translate3d(-50%, 50%, 0) scale(0.5);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+}
+
+@keyframes ani2 {
+  from {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-50%, -100%, 0) scale(0.5);
+  }
+}
+
+.button.buttonHover2 ~ .backgroundRound {
+  transform: translate3d(-50%, 50%, 0) scale(0.5);
+}
+
+.button.buttonHoverTypeform:hover ~ .backgroundRound {
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}

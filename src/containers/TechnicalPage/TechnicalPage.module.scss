@@ -1,0 +1,10 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.textBlock {
+  flex-grow: 1;
+  text-align: center;
+}

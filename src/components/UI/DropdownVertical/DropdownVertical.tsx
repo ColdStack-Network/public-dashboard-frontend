@@ -1,69 +1,86 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
-import style from './dropdownVertical.module.scss';
+import React, { useMemo, useRef, useState } from "react";
+import style from "./dropdownVertical.module.scss";
 import VerticalAlt from "../../../icons/VerticalAlt";
+import clsx from "clsx";
+import { useOnClickOutside } from "helpers/hooks/useOnClickOutside";
 
-export interface dropItem{
-  icon: React.ReactNode,
-  text: string,
-  isAccent?: boolean,
-  onClick: ()=>void,
-  section: 1 | 2
+export interface DropItem {
+  icon?: React.ReactNode;
+  text: JSX.Element | string | number | null;
+  isAccent?: boolean;
+  onClick?: () => void;
+  section: 1 | 2;
+  keepOpenedAfterClick?: boolean;
 }
 
 interface IProps {
-  dropdowns:  dropItem [],
-  top: number
+  dropdowns: DropItem[];
 }
-const DropdownVertical: React.FC<IProps > = ({dropdowns, top}: IProps) => {
-
+const DropdownVertical: React.FC<IProps> = ({ dropdowns }) => {
   const [open, setOpen] = useState(false);
+  const dropRef = useRef<HTMLDivElement>(null);
+  const dropPanelRef = useRef<HTMLDivElement>(null);
+  const [renderPosition, setRenderPosition] = useState<"bottom" | "top">("bottom");
 
-  const dropRef = useRef(null as any);
-  const dropPanelRef = useRef(null as any);
+  const handleOpen = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const position = target.getBoundingClientRect().bottom;
+    setOpen((prev) => !prev);
 
-  const handleClick = (e)=>{
-    if (dropRef && dropRef?.current){
-      if (!dropPanelRef?.current?.contains(e.target) && !dropRef?.current?.contains(e.target)){
-        setOpen(false);
-      }
+    if (window.innerHeight > position + 200) {
+      return setRenderPosition("bottom");
     }
-  }
-  useEffect(()=>{
-    document.addEventListener("click", handleClick)
-    return ()=>{ document.removeEventListener("click", handleClick)}
-  },[])
+    setRenderPosition("top");
+  };
 
+  useOnClickOutside(dropPanelRef, () => setOpen(false));
 
-  const dropdownList = useMemo(()=>{
-    return <div className={style.dropdown} ref={dropPanelRef} style={{top: `${top}px`}}>
-      <div className={style.section}>
-        {dropdowns && dropdowns.map((item, i, arr)=>{
-          if (i>0 && item.section !== arr[i-1].section){
-            return <React.Fragment>
-              <div className={style.border}/>
-              <div className={style.item} onClick={item.onClick}>
-                <div className={style.icon}>{item.icon}</div>
-                <div className={`${style.text} ${item.isAccent ? style.textAccent : ""}`}>{item.text}</div>
+  const handleClick = (item: DropItem) => {
+    return () => {
+      const { onClick, keepOpenedAfterClick } = item;
+      onClick?.();
+      if (!keepOpenedAfterClick) setOpen(false);
+    };
+  };
+
+  const dropdownList = useMemo(() => {
+    return (
+      <div
+        className={clsx(style.dropdown, renderPosition === "top" ? style.topPosition : style.bottomPosition)}
+        ref={dropPanelRef}
+      >
+        <div className={style.section}>
+          {dropdowns.map((item, i, arr) => {
+            if (i > 0 && item.section !== arr[i - 1].section) {
+              return (
+                <React.Fragment key={i}>
+                  <div className={style.border} />
+                  <div className={style.item} onClick={handleClick(item)}>
+                    {item.icon && <div className={style.icon}>{item.icon}</div>}
+                    <div className={clsx(style.text, item.isAccent && style.textAccent)}>{item.text}</div>
+                  </div>
+                </React.Fragment>
+              );
+            }
+            return (
+              <div key={i} className={style.item} onClick={item.onClick}>
+                {item.icon && <div className={style.icon}>{item.icon}</div>}
+                <div className={clsx(style.text, item.isAccent && style.textAccent)}>{item.text}</div>
               </div>
-            </React.Fragment>
-          } else{
-            return  <div className={style.item} onClick={item.onClick}>
-              <div className={style.icon}>{item.icon}</div>
-              <div className={`${style.text} ${item.isAccent ? style.textAccent : ""}`}>{item.text}</div>
-            </div>
-          }
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
-  }, [dropdowns, top])
+    );
+  }, [dropdowns, renderPosition]);
 
-  return(
-    <div className={style.container} onClick={()=>{setOpen((prev)=>!prev)}}>
-      <div className={style.iconMain} ref={dropRef}>
-        <VerticalAlt active={open}/>
+  return (
+    <div className={style.container}>
+      <div className={style.iconMain} ref={dropRef} onClick={handleOpen}>
+        <VerticalAlt active={open} />
       </div>
       {open && dropdownList}
     </div>
-  )
-}
-export default DropdownVertical
+  );
+};
+export default DropdownVertical;

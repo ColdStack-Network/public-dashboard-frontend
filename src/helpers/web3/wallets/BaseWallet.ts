@@ -2,15 +2,14 @@ import { isFull, removeZeros, rpcUrl } from "../../common";
 import { waitReady } from "@polkadot/wasm-crypto";
 import { HttpProvider } from "@polkadot/rpc-provider";
 import { ApiPromise } from "@polkadot/api";
-import { time } from "../../common";
-import Big from 'big.js';
+import Big from "big.js";
 
-import { EXCEPTIONS, METAMASK_GET_BALANCE_ERROR } from '../../../helpers/constants';
+import { EXCEPTIONS, METAMASK_GET_BALANCE_ERROR } from "helpers/constants";
 import Web3 from "web3";
 
 class BaseWallet {
-  name: string = '';
-  address: string = '';
+  name = "";
+  address = "";
   connector: any;
   _library: any;
 
@@ -25,23 +24,21 @@ class BaseWallet {
   }
 
   set library(value: Web3) {
-    if(!this._library) {
+    if (!this._library) {
       this._library = value;
     }
   }
 
   async sign(message: string, account: string): Promise<unknown> {
-
-    console.log("sign", message, account);
     return new Promise((resolve, reject) => {
       this._library.eth.personal
-        .sign(message, account, "test password!")
+        .sign(message, account)
         .then((signature: any) => {
           resolve({ success: true, signature, error: "" });
         })
         .catch((error: any) => {
           resolve({ success: false, signature: "", error });
-        })
+        });
     });
   }
 
@@ -55,7 +52,6 @@ class BaseWallet {
         const api = await ApiPromise.create({ provider });
         const data = await api.query.coldStack.balances(this.address);
         const value = data?.toString();
-
         let balanceCLS = this.getBalanceCLS(value);
 
         cb(balanceCLS);
@@ -69,10 +65,10 @@ class BaseWallet {
 
             clearInterval(timerId);
             cb(balanceCLS);
-          } catch(err) {
+          } catch (err) {
             console.error(err);
           }
-        }, time.seconds(6));
+        }, 6000);
       } catch (err) {
         console.error(METAMASK_GET_BALANCE_ERROR, err);
       }
@@ -88,18 +84,18 @@ class BaseWallet {
     let num = new Big(0);
 
     if (Number(value) > 0) {
-      num = (Big(value).div(Big(10).pow(18))).toFixed(4);
+      num = Big(value).div(Big(10).pow(18)).toFixed(4);
       num = removeZeros(num?.toString());
     }
 
     return num?.toString();
   }
 
-  checkIsInstalled (): boolean {
+  checkIsInstalled(): boolean {
     throw new Error(EXCEPTIONS.METHOD_NOT_IMPLEMENTED);
   }
 
-  checkAuth (): Promise<unknown> {
+  checkAuth(): Promise<unknown> {
     throw new Error(EXCEPTIONS.METHOD_NOT_IMPLEMENTED);
   }
 }

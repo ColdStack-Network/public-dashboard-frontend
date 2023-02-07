@@ -1,30 +1,28 @@
 @import "src/common";
 
-.container{
+.container {
   background: $bgInput;
   border: 1px dashed $border;
   border-radius: 15px;
   padding: 16px;
-  &.active{
+  &.active {
     border: 1px dashed $grey;
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     border: none;
     background: transparent;
     padding: 15px 0;
   }
-
-
 }
-.container_support{
+.container_support {
   background: $bgInput;
   border: 1px dashed $border;
   border-radius: 5px;
   padding: 0;
   margin-bottom: 48px;
 }
-.icon{
+.icon {
   margin-bottom: 6px;
   display: flex;
   justify-content: center;
@@ -32,8 +30,8 @@
     display: none;
   }
 }
-.text{
-  font-family: 'Inter', sans-serif;
+.text {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -45,81 +43,88 @@
     display: none;
   }
 }
-.buttonContainer{
+.buttonContainer {
   display: flex;
   justify-content: center;
 }
 
-.container_support .buttonContainer{
+.container_support .buttonContainer {
   display: block;
 }
 
-
-.buttonContainerDisabled, .buttonContainerDisabled *{
+.buttonContainerDisabled,
+.buttonContainerDisabled * {
   pointer-events: none;
 }
-.file{
+.file {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 9px;
   padding-right: 8px;
 }
-.wrap{
+.wrap {
   margin-bottom: 23px;
 }
-.progress{
+.progress {
   background: $bgInput;
   width: 100%;
   height: 8px;
   border-radius: 100px;
   overflow: hidden;
 }
-.innerProgress{
+.innerProgress {
   background: $primary;
   height: 8px;
   width: 0px;
 }
-.fileRow{
+.fileRow {
   display: flex;
   align-items: center;
 }
-.fileIcon{
+.fileIcon {
   margin-right: 24px;
-  height: 24px
+  height: 24px;
 }
-.fileName{
+.fileName {
   color: $textSecondary;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.fileSize{
-  font-family: 'Inter', sans-serif;
+.fileSize {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #5A5D65;
+  color: #5a5d65;
   flex-shrink: 0;
   flex-grow: 0;
   margin-right: 12px;
 }
-.filePercent{
-  @media(max-width: 767px){
+.filePercent {
+  @media (max-width: 767px) {
     display: none;
   }
 }
-.removeFile{
+.removeFile {
   height: 16px;
-  & svg{
+  & svg {
     width: 16px;
     height: 16px;
   }
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
+}
+
+.grow {
+  flex-grow: 1;
 }

@@ -1,11 +1,13 @@
-import React, {useState, useRef, useEffect} from 'react';
-import style from './selectCustom.module.scss';
-import {isFull, usePrevious} from "../../../helpers/common";
-import {SelectItem} from "./types";
+import React, { useState, useRef, useEffect } from "react";
+import style from "./selectCustom.module.scss";
+import { isFull, usePrevious } from "../../../helpers/common";
+import { SelectItem } from "./types";
 import SvgExpandDown from "../../../icons/Expand_down";
+import clsx from "clsx";
+import { requiredInputs } from "../../../containers/MigrationPage/requiredInputs";
 
 interface IProps {
-  items: SelectItem [];
+  items: SelectItem[];
   value: any;
   onSelect: (item: SelectItem) => void;
   placeholder?: string;
@@ -14,24 +16,35 @@ interface IProps {
   error?: string;
   label?: string;
   size?: string;
+  className?: string;
 }
 
-const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabindex, placeholder, onSelect, label, size}: IProps) => {
-  console.log("value in SELECT====", value);
-
+const SelectControlled: React.FC<IProps> = ({
+  items,
+  value,
+  isError,
+  error,
+  tabindex,
+  placeholder,
+  onSelect,
+  label,
+  size,
+  className,
+}: IProps) => {
   const [open, _setOpen] = useState(false);
   const openRef = useRef(open);
   const rootEl = useRef(null);
   const [activeEl, _setActiveEl] = useState(null as null | SelectItem);
   const activeElRef = useRef(activeEl);
-  const prevValue = usePrevious(value)
+  const prevValue = usePrevious(value);
   const setActiveEl = (data: SelectItem | null) => {
     // its for activeEl to be up to date in eventListener (keyDown)
     activeElRef.current = data;
     _setActiveEl(data);
   };
 
-  useEffect(() => {
+  useEffect(
+    () => {
       document.addEventListener("click", handleClickOutside, true);
       window.addEventListener("keydown", handleKeyNav, true);
       return () => {
@@ -40,7 +53,8 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
       };
     },
     // eslint-disable-next-line
-    []);
+    []
+  );
 
   useEffect(() => {
     if (!open && activeEl) {
@@ -52,7 +66,6 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
     openRef.current = data;
     _setOpen(data);
   };
-
 
   const handleClickOutside = (event) => {
     if (
@@ -73,7 +86,7 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
         e.preventDefault();
       }
       if (e.code === "Enter" && activeEl) {
-        onSelect(activeEl)
+        onSelect(activeEl);
         setOpen(false);
       }
 
@@ -85,9 +98,7 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
         } else {
           // already exist activeEl
           const n = items.length - 1;
-          const pos = items.findIndex(
-            (currentValue) => currentValue.id === activeEl?.id
-          );
+          const pos = items.findIndex((currentValue) => currentValue.id === activeEl?.id);
           if (e.code === "ArrowUp") {
             if (pos - 1 >= 0) {
               setActiveEl(items[pos - 1]);
@@ -109,7 +120,7 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
 
   useEffect(() => {
     if (value?.name !== prevValue?.name || value?.id !== prevValue?.id) {
-      onSelect(value)
+      onSelect(value);
     }
   }, [value, onSelect, prevValue]);
 
@@ -119,14 +130,15 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
   };
 
   return (
-    <div className={style.container} ref={rootEl}>
-      <div className={style.labelInput}>
-        {label}
-      </div>
-      <div className={style.wrapper}
-           onClick={() => {
-             setOpen((prev) => !prev);
-           }}
+    <div className={clsx(className, style.container)} ref={rootEl}>
+      {label && (
+        <div className={clsx(style.labelInput, requiredInputs.includes(label) && style.inputRequired)}>{label}</div>
+      )}
+      <div
+        className={style.wrapper}
+        onClick={() => {
+          setOpen((prev) => !prev);
+        }}
       >
         <input
           className={`${style.input} ${size ? style[`input${size}`] : ""}`}
@@ -138,7 +150,7 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
           /*isSuccess={isFull(value?.id) && open === false}*/
         />
         <div className={`${style.arrowIcon} ${size ? style[`arrowIcon${size}`] : ""}`}>
-          <SvgExpandDown rotate={open}/>
+          <SvgExpandDown rotate={open} />
         </div>
       </div>
 
@@ -151,40 +163,37 @@ const SelectControlled: React.FC<IProps> = ({items, value, isError, error, tabin
 
       {open && (
         <div className={style.list}>
-          {
-            items.map((el, key) => {
-              return (
-                <ListItem
-                  key={key}
-                  onClick={() => {
-                    onClickItem(el);
-                  }}
-                  onHover={() => {
-                    if (open) {
-                      setActiveEl(el);
-                    }
-                  }}
-                  el={el}
-                  isActive={activeEl ? activeEl.id === el.id : undefined}
-                />
-              );
-            })
-          }
+          {items.map((el, key) => {
+            return (
+              <ListItem
+                key={key}
+                onClick={() => {
+                  onClickItem(el);
+                }}
+                onHover={() => {
+                  if (open) {
+                    setActiveEl(el);
+                  }
+                }}
+                el={el}
+                isActive={activeEl ? activeEl.id === el.id : undefined}
+              />
+            );
+          })}
         </div>
       )}
-
     </div>
-  )
-}
+  );
+};
 
 interface PropsItem {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHover?: (event: React.MouseEvent<HTMLDivElement>) => void;
   isActive?: boolean;
-  el: SelectItem
+  el: SelectItem;
 }
 
-const ListItem: React.FC<PropsItem> = ({isActive, el, onClick, onHover}) => {
+const ListItem: React.FC<PropsItem> = ({ isActive, el, onClick, onHover }) => {
   const refEl = useRef(null);
   useEffect(() => {
     if (isActive === true && refEl && refEl.current) {
@@ -197,12 +206,13 @@ const ListItem: React.FC<PropsItem> = ({isActive, el, onClick, onHover}) => {
     }
   }, [isActive, refEl]);
   return (
-    <div className={`${style.listItemElement} ${isActive ? style.listItemElementActive : ""}`}
-         style={{background: isActive ? "" : ""}}
-         tabIndex={-1}
-         ref={refEl}
-         onClick={onClick}
-         onMouseEnter={onHover}
+    <div
+      className={`${style.listItemElement} ${isActive ? style.listItemElementActive : ""}`}
+      style={{ background: isActive ? "" : "" }}
+      tabIndex={-1}
+      ref={refEl}
+      onClick={onClick}
+      onMouseEnter={onHover}
     >
       {el.name}
     </div>
@@ -210,4 +220,3 @@ const ListItem: React.FC<PropsItem> = ({isActive, el, onClick, onHover}) => {
 };
 
 export default SelectControlled;
-

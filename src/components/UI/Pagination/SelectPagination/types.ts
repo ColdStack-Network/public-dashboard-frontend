@@ -7,5 +7,5 @@ export interface ISelectCustom {
   dropdowns: SelectItemPagination[];
   onSelect: (item: SelectItemPagination) => void;
   label: string;
-  value: SelectItemPagination,
+  value: SelectItemPagination;
 }

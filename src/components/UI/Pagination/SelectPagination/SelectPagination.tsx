@@ -1,17 +1,16 @@
-import React, {useState, useRef, useEffect} from 'react';
-import style from './selectPagination.module.scss';
-import {isFull} from "../../../../helpers/common";
-import {SelectItemPagination} from "./types";
+import React, { useState, useRef, useEffect } from "react";
+import style from "./selectPagination.module.scss";
+import { isFull } from "../../../../helpers/common";
+import { SelectItemPagination } from "./types";
 import SvgArrowDropdown from "../../../../icons/ArrowDropdown";
 
 interface IProps {
-  items: SelectItemPagination [];
-  onSelect: (item: SelectItemPagination)=>void;
+  items: SelectItemPagination[];
+  onSelect: (item: SelectItemPagination) => void;
   value?: SelectItemPagination;
   label?: string;
 }
-const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IProps) => {
-
+const SelectPagination: React.FC<IProps> = ({ value, items, onSelect, label }: IProps) => {
   const [open, _setOpen] = useState(false);
   const openRef = useRef(open);
   const rootEl = useRef(null);
@@ -23,16 +22,18 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
     _setActiveEl(data);
   };
 
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    window.addEventListener("keydown", handleKeyNav, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, false);
-      document.removeEventListener("keydown", handleKeyNav);
-    };
-  },
-     // eslint-disable-next-line
-    []);
+  useEffect(
+    () => {
+      document.addEventListener("click", handleClickOutside, true);
+      window.addEventListener("keydown", handleKeyNav, true);
+      return () => {
+        document.removeEventListener("click", handleClickOutside, false);
+        document.removeEventListener("keydown", handleKeyNav);
+      };
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   useEffect(() => {
     if (!open && activeEl) {
@@ -45,9 +46,7 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
     _setOpen(data);
   };
 
-
- /* const setValue = (data) => {
-    //console.log("setValue");
+  /* const setValue = (data) => {
     valueRef.current = data;
     _setValue(data);
   };
@@ -55,7 +54,6 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
 
   useEffect(() => {
     if (prevInitValue?.id !== initValue?.id || prevInitValue?.name !== initValue?.name) {
-      //console.log("prevInitValue !== initValue", prevInitValue, initValue);
       setValue(initValue);
       if (open) {
         setOpen(false);
@@ -96,9 +94,7 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
         } else {
           //  activeEl already exist
           const n = items.length - 1;
-          const pos = items.findIndex(
-            (currentValue) => currentValue.id === activeEl?.id
-          );
+          const pos = items.findIndex((currentValue) => currentValue.id === activeEl?.id);
           if (e.code === "ArrowUp") {
             if (pos - 1 >= 0) {
               setActiveEl(items[pos - 1]);
@@ -120,7 +116,6 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
   //const prevValue = usePrevious(value);
   /*useEffect(() => {
     // outer func onSelect
-    //console.log("value===", value, "prevValue", prevValue);
 
     if (value?.name !== prevValue?.name) { onSelect(value)}
     //if (value?.name) { onSelect(value)}
@@ -132,60 +127,53 @@ const SelectPagination: React.FC<IProps > = ({value, items, onSelect, label}: IP
     setOpen(false);
   };
 
-  return(
+  return (
     <div className={style.wrap}>
-      <div className={style.labelInput}>
-        {label}
-      </div>
+      <div className={style.labelInput}>{label}</div>
       <div className={style.container} ref={rootEl}>
-        <div className={style.wrapper}
-             onClick={() => {
-               setOpen((prev)=>!prev);
-             }}
+        <div
+          className={style.wrapper}
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}
         >
-          <input
-            className={style.input}
-            value={value?.name}
-            readOnly={true}
-          />
+          <input className={style.input} value={value?.name} readOnly={true} />
           <div className={style.arrowIcon}>
-            <SvgArrowDropdown/>
+            <SvgArrowDropdown />
           </div>
         </div>
 
         {open && (
           <div className={style.list}>
-            {
-              items.map((el, key) => {
-                return (
-                  <ListItem
-                    key={key}
-                    onClick={() => {
-                      onClickItem(el);
-                    }}
-                    onHover={() => {
-                      if (open) {
-                        setActiveEl(el);
-                      }
-                    }}
-                    el={el}
-                    isActive={activeEl ? activeEl.id === el.id : undefined}
-                  />
-                );
-              })
-            }
+            {items.map((el, key) => {
+              return (
+                <ListItem
+                  key={key}
+                  onClick={() => {
+                    onClickItem(el);
+                  }}
+                  onHover={() => {
+                    if (open) {
+                      setActiveEl(el);
+                    }
+                  }}
+                  el={el}
+                  isActive={activeEl ? activeEl.id === el.id : undefined}
+                />
+              );
+            })}
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 interface PropsItem {
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   onHover?: (event: React.MouseEvent<HTMLDivElement>) => void;
   isActive?: boolean;
-  el: SelectItemPagination
+  el: SelectItemPagination;
 }
 
 const ListItem: React.FC<PropsItem> = ({ isActive, el, onClick, onHover }) => {
@@ -201,12 +189,13 @@ const ListItem: React.FC<PropsItem> = ({ isActive, el, onClick, onHover }) => {
     }
   }, [isActive, refEl]);
   return (
-    <div className={`${style.listItemElement} ${isActive ? style.listItemElementActive : ""}` }
-         style={{background: isActive ? "" : ""}}
-         tabIndex={-1}
-         ref={refEl}
-         onClick={onClick}
-         onMouseEnter={onHover}
+    <div
+      className={`${style.listItemElement} ${isActive ? style.listItemElementActive : ""}`}
+      style={{ background: isActive ? "" : "" }}
+      tabIndex={-1}
+      ref={refEl}
+      onClick={onClick}
+      onMouseEnter={onHover}
     >
       {el.name}
     </div>
@@ -214,4 +203,3 @@ const ListItem: React.FC<PropsItem> = ({ isActive, el, onClick, onHover }) => {
 };
 
 export default SelectPagination;
-

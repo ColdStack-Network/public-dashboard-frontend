@@ -1,35 +1,36 @@
 @import "src/common";
-.footer{
+.footer {
   display: flex;
   @media (max-width: 374.9px) {
     justify-content: flex-end;
   }
 }
-.wrapBtn1{
+.wrapBtn1 {
   margin-right: 24px;
   @media (max-width: 374.9px) {
-   margin-right: 10px;
+    margin-right: 10px;
   }
 }
-.wrapBtn1, .wrapBtn2{
-  @media (max-width: 374.9px){
-    & button{
+.wrapBtn1,
+.wrapBtn2 {
+  @media (max-width: 374.9px) {
+    & button {
       width: 115px;
     }
   }
 }
 
-.item{
+.item {
   margin: 0 -5px;
   //margin-bottom: 16px;
   display: flex;
 }
-.item:last-child{
+.item:last-child {
   margin-bottom: 0;
 }
-.label{
+.label {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   color: $textSecondary;
   //width: auto;
@@ -44,7 +45,7 @@
 
 .newInputMetadata {
   display: flex;
-   margin: 0 -5px;
+  margin: 0 -5px;
   margin-bottom: 16px;
 }
 
@@ -53,8 +54,8 @@
   margin: 0 5px;
 }
 
-.modalHeadItem{
-  font-family: 'Inter', sans-serif;
+.modalHeadItem {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -64,10 +65,18 @@
 }
 
 .hideButton {
-   cursor: auto;
+  cursor: auto;
   background-color: transparent;
   width: 48px;
   height: 48px;
   margin: 0 !important;
   flex: auto;
+}
+
+.inputWrapper {
+  max-width: 189px;
+}
+
+.wrap {
+  max-width: 480px;
 }

@@ -1,0 +1,77 @@
+@import "src/common";
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 160px 0 0;
+  overflow: hidden;
+  @media (max-width: 1919px) {
+    padding: 144px 0 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 124px 0 0;
+  }
+  @media (max-width: 1199px) {
+    padding: 104px 0 0;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 0 0;
+  }
+}
+
+.subtitleText {
+  margin-bottom: 80px;
+  @media(max-width: 1919px) {
+    margin-bottom: 64px;
+  }
+  @media(max-width: 1439px) {
+    margin-bottom: 48px;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.anima {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  animation: move-forever 40s infinite linear;
+  transform: translateY(-99%);
+  margin-bottom: 80px;
+  @media(max-width: 1919px) {
+    margin-bottom: 64px;
+  }
+  @media(max-width: 1439px) {
+    margin-bottom: 48px;
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translateX(99%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animaItem {
+  display: block;
+  margin-right: 160px;
+  @media(max-width: 1919px) {
+    margin-right: 144px;
+  }
+  @media(max-width: 1439px) {
+    margin-right: 104px;
+  }
+  @media(max-width: 767px) {
+    margin-right: 80px;
+  }
+}
+
+.image {
+  height: 100%;
+}

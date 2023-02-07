@@ -1,5 +1,5 @@
 @import "src/common";
-.button{
+.button {
   color: white;
   border-radius: 5px;
   width: 100%;
@@ -8,124 +8,135 @@
   align-items: center;
   justify-content: center;
   padding: 6px 5px;
-  box-shadow: none!important;
-  border: none!important;
+  box-shadow: none !important;
+  border: none !important;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   &:hover {
     cursor: pointer;
   }
 }
 
-.buttonprimary{
+.buttonprimary {
   background: $primary;
-  &:hover{
+  &:hover {
     background: $primaryHover;
   }
 }
 
-.buttonaccent{
+.buttonaccent {
   background: $accent;
-  &:hover{
+  &:hover {
     background: $accentHover;
   }
 }
 
-.buttonsecondary{
+.buttonoutlined {
+  background: transparent;
+  border: 1px solid $secondary !important;
+  color: $secondary;
+  border-radius: 4px;
+  &:hover {
+    background: $secondary;
+    color: #fff;
+  }
+}
+
+.buttonsecondary {
   background: $secondary;
-  &:hover{
+  &:hover {
     background: $secondaryHover;
   }
 }
 
-.buttontransparent{
+.buttontransparent {
   background: $transparent;
-  &:hover{
+  &:hover {
     background: $transparentHover;
   }
 }
 
-.buttonDisabledtransparent{
+.buttonDisabledtransparent {
   cursor: auto !important;
-  &:hover{
+  &:hover {
     background: $transparent;
   }
 }
 
-.buttonadditional{
+.buttonadditional {
   background: $bgInput;
   color: $text;
-  &:hover{
+  &:hover {
     background: $bgInputHover;
   }
 }
-.buttongray{
+.buttongray {
   background: $grey;
   color: $white;
-  &:hover{
+  &:hover {
     background: $greyHover;
   }
 }
 
-.buttonlightgray{
+.buttonlightgray {
   background: $bgInput;
   //background: gray;
   color: $text;
-  &:hover{
+  &:hover {
     background: $greyHover;
   }
 }
 
-.buttondisabled{
+.buttondisabled {
   background: $bgInput;
   cursor: auto !important;
   color: $text;
 }
 
-.buttonaccent{
+.buttonaccent {
   background: $error;
   color: white;
-  &:hover{
+  &:hover {
     background: $accentHover;
   }
 }
-.buttonDisabledadditional{
+.buttonDisabledadditional {
   cursor: auto;
-  &:hover{
+  &:hover {
     background: $bgInput;
     cursor: auto;
   }
 }
 
-.buttonsmall{
+.buttonsmall {
   width: 140px;
 }
-.buttonbig{
+.buttonbig {
   width: 168px;
   height: 48px;
-  @media (max-width: 767.9px){
+  @media (max-width: 767.9px) {
     width: 100%;
     padding: 6px 20px;
   }
 }
-.buttonlarge{
+.buttonlarge {
   width: 300px;
   height: 48px;
-  @media (max-width: 767.9px){
+  @media (max-width: 767.9px) {
     width: 100%;
     padding: 6px 20px;
   }
 }
-.buttonextrasmall{
+.buttonextrasmall {
   height: 32px;
   width: 140px;
   font-size: 12px;
   line-height: 24px;
 }
 
-.buttontiny{
+.buttontiny {
   width: auto;
   height: 16px;
   font-size: 12px;
@@ -138,7 +149,21 @@
   margin-bottom: 20px;
 }
 
-.buttonfullwidth{
+.buttonform {
+  display: block !important;
+  height: 72px;
+  width: 100%;
+  font-size: 18px;
+  line-height: 32px;
+  padding: 0 32px;
+  box-shadow: 0 16px 40px rgba(0, 35, 102, 0.1);
+  border-radius: 60px;
+  @media (max-width: 768px) {
+    height: 56px;
+  }
+}
+
+.buttonfullwidth {
   display: block !important;
   height: 32px;
   width: 100%;
@@ -151,4 +176,15 @@
   display: block !important;
   width: 48px;
   height: 48px;
+}
+
+.asyncBtn {
+  position: relative;
+}
+.asyncBtnSpin {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
 }

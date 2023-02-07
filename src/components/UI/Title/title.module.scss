@@ -1,0 +1,90 @@
+.largeTitle {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 120px;
+  line-height: 120px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+}
+
+.largeTitle2 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 80px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+}
+
+
+.h1 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 60px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+   @media (max-width: 1199px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.h2 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+  @media (max-width: 1199px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+   @media (max-width: 1199px) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+}
+
+.h3 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 60px;
+  align-items: center;
+  color: #1A051D;
+}
+
+.h4 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 60px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+}
+
+
+.h5 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 60px;
+  align-items: center;
+  color: #1A051D;
+  margin: 0 0 32px;
+}

@@ -1,0 +1,12 @@
+.visibleMd {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .visibleMd {
+    display: flex;
+  }
+  .visibleSm {
+    display: none;
+  }
+}

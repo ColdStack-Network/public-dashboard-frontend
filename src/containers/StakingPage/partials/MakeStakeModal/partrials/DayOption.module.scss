@@ -1,0 +1,17 @@
+.option {
+  padding: 12px 10px;
+  background-color: #fff;
+  background: #f4f6fd;
+  border: 1px solid #d9e1ff;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: #333333;
+  cursor: pointer;
+}
+
+.optionActive {
+  border-color: #1fcf90;
+}

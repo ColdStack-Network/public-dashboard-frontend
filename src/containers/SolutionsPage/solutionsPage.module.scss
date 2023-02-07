@@ -1,0 +1,147 @@
+.pr44 {
+  padding-right: 44px;
+  @media (max-width: 1080px) {
+    padding: 0;
+  }
+}
+
+.pl44 {
+  padding-left: 44px;
+  @media (max-width: 1080px) {
+    padding: 0;
+  }
+}
+
+.pt160 {
+  padding-top: 160px;
+  @media (max-width: 1080px) {
+    padding-top: 80px;
+  }
+  @media (max-width: 560px) {
+    padding-top: 56px;
+  }
+}
+
+.solutionBlockRow {
+  display: flex;
+  @media (max-width: 1080px) {
+    flex-wrap: wrap;
+  }
+}
+
+.rowReverse {
+  @media (max-width: 1080px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.solutionBlock {
+  padding-bottom: 160px;
+  @media (max-width: 1080px) {
+    padding-bottom: 25px;
+  }
+}
+
+.solution {
+  width: 50%;
+  margin-bottom: 114px;
+  @media (max-width: 1080px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  h2, p {
+    margin: 0;
+  }
+  h2 {
+    font-style: normal;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 60px;
+    color: #1B2A47;
+    margin-bottom: 30px;
+    @media (max-width: 1080px) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    @media (max-width: 560px) {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 16px;
+    }
+  }
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 40px;
+    color: #6E7E9D;
+    @media (max-width: 1080px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    @media (max-width: 560px) {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+}
+
+.solutionImg {
+  width: 100%;
+  max-width: 672px;
+}
+
+.justifySpaceB {
+  justify-content: space-between;
+}
+
+.solutionMini {
+  max-width: 400px;
+  @media (max-width: 1080px) {
+    max-width: 100%;
+    margin-bottom: 55px;
+  }
+  @media (max-width: 560px) {
+    text-align: center;
+  }
+  h4, p {
+    margin: 0;
+  }
+  h4 {
+    margin-top: 30px;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'Outfit', sans-serif;
+    @media (max-width: 1080px) {
+      font-size: 20px;
+      line-height: 28px;
+      margin-top: 15px;
+    }
+    @media (max-width: 560px) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6E7E9D;
+    @media (min-width:1080px) and (max-width:1200px) {
+      padding-right: 15px;
+    }
+    @media (max-width: 1080px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @media (max-width: 560px) {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+}

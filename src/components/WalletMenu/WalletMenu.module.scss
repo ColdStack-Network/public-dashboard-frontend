@@ -1,0 +1,95 @@
+@import "src/common";
+
+.wrapPanel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: 767.9px) {
+    width: 80px;
+  }
+}
+
+.panel {
+  background-color: $inpBg;
+  border: 1px solid $border;
+  border-radius: 10px;
+  height: 48px;
+  min-width: 200px;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  @media (max-width: 767.9px) {
+    margin-right: 0;
+    padding-left: 0;
+    min-width: 48px;
+  }
+}
+
+.walletIcon {
+  width: 29px;
+  padding-right: 5px;
+  margin-right: auto;
+  height: 24px;
+
+  @media (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.balance {
+  color: $textSecondary;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Inter", sans-serif;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 10px;
+  @media (max-width: 767.9px) {
+    display: none;
+  }
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid #d9e1ff;
+  position: relative;
+  left: 1px;
+  background-color: #f3f6ff;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  @media (max-width: 767.9px) {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    left: 0;
+  }
+}
+
+.arrow {
+  @media (max-width: 767.9px) {
+    margin-left: 6px;
+    height: 24px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}

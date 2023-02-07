@@ -1,0 +1,277 @@
+@import "src/common";
+
+.wrapper {
+  background-image: url('../../../../images/waves.png');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  //height: 968px;
+  height: calc(100vh - 112px);
+  max-height: 1080px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  @media (max-width: 1919px) {
+    height: calc(100vh - 112px);
+    max-height: 900px;
+  }
+  @media (max-width: 1199px) {
+    height: auto;
+    flex-direction: column;
+    padding: 34px 0 104px;
+    max-height: none;
+  }
+  @media (max-width: 1199px) {
+
+    padding: 34px 0 64px;
+  }
+}
+
+.content {
+  z-index: 1;
+  max-width: 1920px;
+  padding: 0 240px;
+  width: 100%;
+  margin: auto;
+
+  @media (max-width: 1440px) {
+    padding: 0 120px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 533px) {
+    padding: 0 20px;
+  }
+}
+
+.leftBlock {
+  @media (max-width: 1199px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.rightBlock {
+  position: absolute;
+  //right: -38%;
+  left: 55%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.1s ease-in-out;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  @media (max-width: 1919px) {
+    width: 1280px;
+    left: 60%;
+    //right: -48%;
+  }
+  @media (max-width: 1199px) {
+    width: 100%;
+    position: relative;
+    transform: translateY(0);
+    right: 0;
+    left: 0;
+    height: auto;
+  }
+}
+
+.rightBlock img {
+  //max-height: 808px;
+  height: 90%;
+  @media (max-width: 1919px) {
+
+  }
+  @media (max-width: 1199px) {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.wrapperButtonPlay {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contentButtonPlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid #6E7E9D;
+  box-sizing: border-box;
+  position: relative;
+  @media(max-width: 1199px) {
+    width: 52px;
+    height: 52px;
+    background-color: #ffffff;
+  }
+}
+
+.buttonsBlock {
+  display: flex;
+  @media (max-width: 1199px) {
+    margin-bottom: 64px;
+  }
+}
+
+.buttonOvalWrapper {
+  margin-right: 76px;
+  position: relative;
+  @media(max-width: 1199px) {
+    margin-right: 0;
+  }
+}
+
+.buttonPlay {
+  margin-left: 5px;
+  margin-top: 5px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media(min-width: 1200px) {
+  .contentButtonPlay:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #6E7E9D;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 0.1s;
+  }
+
+  .contentButtonPlay:hover:before {
+    transform: scale(1.01);
+  }
+}
+
+.triangle {
+  border: 10px solid transparent;
+  border-left: 10px solid #6E7E9D;
+  margin-left: 10px;
+  margin-top: -5px;
+  transition: all 0.1s;
+  z-index: 10;
+  @media(max-width: 1199px) {
+    border: 7px solid transparent;
+    border-left: 7px solid #6E7E9D;
+    margin-left: 7px;
+    margin-top: -4px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contentButtonPlay:hover .triangle {
+    border-left: 10px solid #ffffff;
+    @media(max-width: 1199px) {
+      border: 7px solid transparent;
+    }
+  }
+}
+
+.contentButtonPlay:hover .triangle {
+  border-left: 10px solid #ffffff;
+  @media(max-width: 1199px) {
+    border: 7px solid transparent;
+  }
+}
+
+.wrapperDots12 {
+  position: absolute;
+  top: 4px;
+  right: -60px;
+  height: 64px;
+  width: 44px;
+  @media(max-width: 1199px) {
+    display: none;
+  }
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 100%;
+  color: $textBlack;
+  width: 100%;
+  margin-bottom: 64px;
+  @media (max-width: 1919px) {
+    font-size: 100px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 1439px) {
+    font-size: 70px;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 88px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    font-size: 52px;
+  }
+
+  @media (max-width: 359px) {
+    font-size: 46px;
+  }
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: $subtitleText;
+  margin-bottom: 64px;
+  @media (max-width: 1919px) {
+    font-size: 24px;
+    margin-bottom: 56px;
+  }
+
+  @media (max-width: 1199px) {
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.rightBlock {
+  padding: 20px;
+  @media(max-width: 1199px){
+    padding: 40px;
+  }
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.dashBoardImage {
+  border-radius: 16px;
+    border: 15px solid white;
+
+}

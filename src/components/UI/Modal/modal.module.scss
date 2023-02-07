@@ -17,10 +17,10 @@
 }
 
 .modalDialog {
+  max-width: 759px;
   width: 100%;
-  max-width: 480px;
   position: relative;
-  margin: 0 20px;
+  margin: 0 39px;
   max-height: calc(100vh - 40px);
   text-align: left;
   display: flex;
@@ -34,9 +34,17 @@
   animation-duration: 0.1s;
   padding: 24px;
   @media (max-width: 767.9px) {
-    margin: 0 15px;
+    margin: 0 20px;
     max-width: calc(100% - 30px);
   }
+}
+
+.sm {
+  max-width: 480px;
+}
+
+.md {
+  max-width: 759px;
 }
 
 .modalHeader,

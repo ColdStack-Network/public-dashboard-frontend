@@ -1,0 +1,144 @@
+@import "src/common";
+
+.wrapper {
+  background: url('../../../../images/waves2.png') no-repeat bottom left,
+  linear-gradient(360deg, #F4F6FD 0%, #E9EDFD 100%);
+  background-size: contain;
+  padding: 160px 144px;
+  border-radius: 16px;
+  @media (max-width: 1919px) {
+    padding: 144px 120px;
+  }
+  @media (max-width: 1199px) {
+    padding: 80px 40px;
+  }
+  @media (max-width: 767px) {
+    padding: 45px 16px;
+  }
+}
+
+.wrapperTotalUsersSharedFiles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondaryValue {
+  position: relative;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 112%;
+  text-align: center;
+  text-transform: uppercase;
+  color: $lightGreyText;
+  @media (max-width: 1919px) {
+    font-size: 48px;
+  }
+  @media (max-width: 1439px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+}
+
+.secondarySubtitle {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: $lightGreyText2;
+
+  @media (max-width: 1919px) {
+    font-size: 20px;
+  }
+  @media (max-width: 1439px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+}
+
+.overallCapacityWrapper {
+  margin-bottom: 120px;
+  @media (max-width: 1919px) {
+     margin-bottom: 96px;
+  }
+  @media (max-width: 1439px) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 1199px) {
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 40px;
+  }
+}
+
+.dots3x6 {
+  display: block;
+  @media (max-width: 1919px) {
+    display: none;
+  }
+}
+
+.dots3x5 {
+  display: none;
+  @media (max-width: 1919px) {
+    display: block;
+  }
+  @media (max-width: 1439px) {
+    display: none;
+  }
+}
+
+.dots3x4 {
+  display: none;
+  @media (max-width: 1439px) {
+    display: block;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.dots3x3 {
+  display: none;
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
+
+.dots10x6 {
+  display: block;
+  @media (max-width: 1919px) {
+    display: none;
+  }
+}
+
+.dots10x5 {
+  display: none;
+  @media (max-width: 1919px) {
+    display: block;
+  }
+  @media (max-width: 1439px) {
+    display: none;
+  }
+}
+
+.dots6x4 {
+  display: none;
+  @media (max-width: 1439px) {
+    display: block;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+

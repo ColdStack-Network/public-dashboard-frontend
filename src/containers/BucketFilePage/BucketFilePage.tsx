@@ -1,34 +1,28 @@
-import React, {useMemo} from "react";
-import queryString from 'query-string'
-import {useLocation} from 'react-router-dom'
+import React, { useMemo } from "react";
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
 import FilePage from "../FilePage/FilePage";
 import BucketPage from "../BucketPage/BucketPage";
 
-const BucketFilePage: React.FC<any> = (props: any) => {
-
-
-  console.log("BucketFilePage props", props)
-  const {search, pathname} = useLocation()
+const BucketFilePage: React.FC = () => {
+  const { search, pathname } = useLocation();
+  const path: string = pathname;
   const query = queryString.parse(search);
-  // console.log("query", query, "window.location", window.location);
-
-  const file = query?.file as string || "";
-  const nameBucket = useMemo(() => {
-    return pathname.split("/")?.[2]
-  }, [pathname]);
+  const file = String(query?.file || "");
+  const nameBucket = useMemo(() => path.split("/")?.[3], [path]);
   const pathFolder = useMemo(() => {
-    return pathname.slice(nameBucket.length + 10);
-  }, [nameBucket, pathname])
+    return path.slice(nameBucket.length + "/dashboard/buckets/".length + 1);
+  }, [nameBucket, path]);
 
-
-  return(
+  return (
     <React.Fragment>
-      {
-        file?.length > 0 ? <FilePage data={{file, nameBucket, pathFolder}}/>
-        : <BucketPage data={{nameBucket, pathFolder}} />
-      }
+      {file?.length > 0 ? (
+        <FilePage data={{ file, nameBucket, pathFolder }} />
+      ) : (
+        <BucketPage data={{ nameBucket, pathFolder }} />
+      )}
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default BucketFilePage;

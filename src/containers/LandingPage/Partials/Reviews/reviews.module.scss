@@ -1,0 +1,276 @@
+@import "src/common";
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  background: url('../../../../images/waves3.png') no-repeat bottom left,
+  linear-gradient(360deg, #F4F6FD 0%, #E9EDFD 100%);
+  padding: 160px 0;
+
+  @media (max-width: 1919px) {
+    padding: 144px 0;
+  }
+  @media (max-width: 1919px) {
+    padding: 104px 0;
+  }
+  @media (max-width: 767px) {
+    height: auto;
+    min-height: auto;
+    padding: 80px 0;
+
+  }
+}
+
+.container {
+  max-width: 1920px;
+
+  //background: $bgInput;
+
+
+  width: 100%;
+  margin: auto;
+  //min-height: 500px;
+
+  //@media (max-width: 1919px) {
+  //  padding: 192px 0;
+  //}
+  //
+  //@media (max-width: 1439px) {
+  //  padding: 172px 60px;
+  //}
+  //
+  @media (max-width: 1199px) {
+    height: auto;
+  }
+
+  @media (max-width: 767px) {
+    height: auto;
+    min-height: auto;
+  }
+}
+
+.wrapperSlider {
+  padding: 0;
+  @media (max-width: 1919px) {
+    padding: 0;
+  }
+  @media (max-width: 1439px) {
+    padding: 0;
+  }
+}
+
+
+.text {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 140%;
+  color: $textBlack;
+  margin-bottom: 64px;
+  @media(max-width: 1919px) {
+    font-size: 40px;
+    margin-bottom: 56px;
+  }
+  @media(max-width: 1439px) {
+    font-size: 48px;
+  }
+  @media(max-width: 1199px) {
+    font-size: 32px;
+  }
+  @media(max-width: 767px) {
+    font-size: 24px;
+  }
+}
+
+.people {
+  display: flex;
+  align-items: center;
+}
+
+.photoPeople {
+  margin-right: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  @media(max-width: 1023px) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.photoPeople img {
+  width: 100%;
+}
+
+.peopleName {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: $textBlack;
+  margin-bottom: 8px;
+  @media(max-width: 1199px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.peoplePosition {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: $lightGreyText;
+  @media(max-width: 1199px) {
+    font-size: 14px;
+  }
+}
+
+.wrapperCart {
+  padding: 0 568px;
+  @media(max-width: 1919px) {
+    padding: 0 240px;
+  }
+  @media(max-width: 1439px) {
+    padding: 0 60px;
+  }
+  @media (max-width: 1199px) {
+    padding: 0 40px;
+  }
+  @media(max-width: 767px) {
+    padding: 0 20px;
+  }
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px;
+  //max-height: 800px;
+  background: url('../../../../images/quotes1920.png') no-repeat top left;
+  @media(max-width: 1919px) {
+    background: url('../../../../images/quotes1440.png') no-repeat top left;
+    min-height: 400px;
+  }
+  @media(max-width: 1439px) {
+    background: url('../../../../images/quotes768.png') no-repeat top left;
+    min-height: 500px;
+  }
+  @media (max-width: 1199px) {
+    min-height: 350px;
+  }
+  @media(max-width: 767px) {
+    background: url('../../../../images/quotes360.png') no-repeat top left;
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+.footerCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nextArrow {
+  cursor: pointer;
+  top: auto;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(110, 126, 157, 1);
+  display: flex;
+  width: 121px;
+  height: 22px;
+  flex-wrap: nowrap;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1439px) {
+  .nextArrow {
+    bottom: 18px;
+    width: 101px;
+    height: 19px;
+  }
+}
+
+.nextArrowText {
+  margin-left: 16px;
+}
+
+.nextArrow:before {
+  content: none !important;
+}
+
+.nextArrow:hover {
+  color: #0053F1;
+}
+
+.decorLineWrapper {
+  position: relative;
+  height: 2px;
+  width: 64px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+
+.decorLine {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: block;
+  background-color: #0053F1;
+  transform: translate(-100%, -50%) scale(0.5);
+  z-index: 10;
+}
+
+.decorLineBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #6E7E9D;
+  width: 100%;
+}
+
+.decorLine.buttonHover {
+  animation: ani .3s;
+  animation-fill-mode: forwards;
+}
+
+.decorLine.buttonLeave {
+  animation: ani2 .3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes ani {
+  from {
+    transform: translate(-100%, -50%) scale(0.5);
+  }
+  to {
+    transform: translate(0, -50%) scale(1.2);
+  }
+}
+
+@keyframes ani2 {
+  from {
+    transform: translate(0, -50%) scale(1.2);
+  }
+  to {
+    transform: translate(100%, -50%) scale(0.5);
+  }
+}
+

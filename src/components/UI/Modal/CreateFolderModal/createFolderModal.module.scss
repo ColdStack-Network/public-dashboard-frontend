@@ -1,12 +1,12 @@
-.footer{
+.footer {
   display: flex;
   @media (max-width: 374.9px) {
-   & button{
-     width: 115px;
-   }
+    & button {
+      width: 115px;
+    }
   }
 }
-.wrapBtn1{
+.wrapBtn1 {
   margin-right: 24px;
   @media (max-width: 374.9px) {
     margin-right: 10px;
@@ -15,12 +15,12 @@
   }
 }
 
-.item{
+.item {
   margin-bottom: 24px;
 }
-.item:last-child{
+.item:last-child {
   margin-bottom: 0;
 }
-.createFolderContent{
-
+.wrap {
+  max-width: 480px;
 }

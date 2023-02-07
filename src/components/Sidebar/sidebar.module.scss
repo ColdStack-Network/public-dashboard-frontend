@@ -1,126 +1,120 @@
 @import "src/common";
 
-.sidebar{
+.sidebar {
   background-color: $secondary;
   height: 100vh;
   padding: 28px 8px;
-
- /* min-height: 600px;
-  overflow-y: auto;*/
+  overflow-y: auto;
 
   display: none;
   @media (min-width: 1440px) {
     display: block;
   }
 
-  @media(max-width: 767.9px){
+  @media (max-width: 767.9px) {
     padding: 60px 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 }
-/*.sidebar{
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  overflow: auto;
-}
-.sidebar::-webkit-scrollbar{
-  width: 0
-}
-.sidebar::-webkit-scrollbar{
-  width: 0
-}*/
 
-.sidebarTablet{
+.sidebarTablet {
   display: none;
   @media (min-width: 768px) and (max-width: 1439.9px) {
     display: block;
   }
 }
-.sidebarMobile{
+.sidebarMobile {
   display: none;
   @media (max-width: 768px) {
     display: block;
   }
 }
-.sidebarCollapsedTablet{
+.sidebarCollapsedTablet {
   @media (min-width: 768px) and (max-width: 1439.9px) {
     padding-top: 15px;
     padding-left: 4px;
     padding-right: 4px;
   }
-
 }
-.sidebarCollapsedDesktop{
-  @media(min-width: 1440px) {
+
+.sidebarCollapsedTablet::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebarCollapsedDesktop {
+  @media (min-width: 1440px) {
     padding-top: 15px;
     padding-left: 4px;
     padding-right: 4px;
   }
 }
 
-.sidebarCollapsedMobile{
-
+.sidebarCollapsedMobile {
 }
-.logotype{
+.logotype {
   margin-bottom: 28px;
   max-height: 24px;
   display: none;
   padding-left: 8px;
   cursor: pointer;
-  & svg{
+
+  & svg {
     max-height: 48px;
   }
-  @media(min-width: 768px) and (max-width: 1439.9px){
+
+  @media (min-width: 768px) and (max-width: 1439.9px) {
     margin-bottom: 13px;
     max-height: none;
     padding-left: 12px;
   }
-  @media(max-width: 767.9px){
+  @media (max-width: 767.9px) {
     margin-bottom: 156px;
   }
 }
-.logotypeCollapsed{
+
+.logotypeCollapsed {
   width: 72px;
   padding-left: 12px;
   max-height: 48px;
   margin-bottom: 16px;
 }
-.logotype.logotypeCommon{
+
+.logotype.logotypeCommon {
   display: block;
 }
-.logotype.logotypeCollapsed{
+
+.logotype.logotypeCollapsed {
   display: block;
 }
-@media(max-width: 767.9px){
-  .logotype{
+
+@media (max-width: 767.9px) {
+  .logotype {
     position: absolute;
     top: 28px;
     left: 28px;
   }
-  .logotype.logotypeCollapsed{
+  .logotype.logotypeCollapsed {
     display: none;
   }
-  .logotype.logotypeCommon{
+  .logotype.logotypeCommon {
     display: none;
   }
-  .logotype.mobileCollapsed{
+  .logotype.mobileCollapsed {
     display: block;
   }
-  .logotype.mobileCommon{
+  .logotype.mobileCommon {
     display: block;
   }
 }
 
-.items{
+.items {
   @media (max-width: 767.9px) {
-
   }
 }
 
-.item{
+.item {
   display: flex;
   text-decoration: none;
   align-items: center;
@@ -128,29 +122,32 @@
   margin-bottom: 16px;
   border-radius: 5px;
   background-color: $secondary;
-  &:hover{
+
+  &:hover {
     transition: all 0.2s ease-in-out;
     background-color: $menuHover;
   }
+
   @media (max-width: 767.9px) {
     padding: 8px;
   }
 }
 
-.itemCollapsed{
+.itemCollapsed {
   width: 40px;
   overflow: hidden;
   margin-left: 15px;
-  @include animationSidebar ();
+  @include animationSidebar();
   @media (min-width: 768px) and (max-width: 1439.9px) {
     transition: none;
   }
-  @media(max-width: 767.9px){
+  @media (max-width: 767.9px) {
     width: 100%;
     margin-left: 0;
   }
 }
-.itemCollapsedTablet{
+
+.itemCollapsedTablet {
   @media (min-width: 768px) and (max-width: 1439.9px) {
     width: 40px;
     margin-left: auto;
@@ -158,68 +155,68 @@
     transition: none;
   }
 }
-.icon{
+
+.icon {
   width: 24px;
   height: 24px;
   flex-grow: 0;
   flex-shrink: 0;
   margin-right: 32px;
-  @media(max-width: 767.9px){
+  @media (max-width: 767.9px) {
     display: none;
   }
 }
 
-.itemText{
+.itemText {
   text-decoration: none;
   white-space: nowrap;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
-  @media(max-width: 767.9px){
+  color: #ffffff;
+  @media (max-width: 767.9px) {
     width: 100%;
     text-align: center;
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
   }
-
-
 }
-.titleBlock{
+
+.titleBlock {
   font-weight: normal;
   padding: 14px 0 14px 8px;
   color: $menuGroup;
   font-size: 12px;
   line-height: 12px;
   white-space: nowrap;
-  @media(max-width: 767.9px){
-   display: none;
+  @media (max-width: 767.9px) {
+    display: none;
   }
-
 }
-.titleBlockCollapsedDesktop{
+
+.titleBlockCollapsedDesktop {
   width: 71px;
   text-align: center;
   padding-left: 0px;
   @include animationSidebar();
-  @media (max-width: 1439.9px){
-
+  @media (max-width: 1439.9px) {
   }
   @media (min-width: 768px) and (max-width: 1439.9px) {
-
   }
 }
-.titleBlockCollapsedTablet{
+
+.titleBlockCollapsedTablet {
   @media (min-width: 768px) and (max-width: 1439.9px) {
     text-align: center;
     padding-left: 0px;
   }
 }
 
-.mobileMenuClose{
+.mobileMenuClose {
   display: none;
 }
+
 @media (max-width: 767.9px) {
   .mobileMenuClose {
     display: block;

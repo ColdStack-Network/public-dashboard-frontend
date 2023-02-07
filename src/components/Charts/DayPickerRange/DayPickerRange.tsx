@@ -1,53 +1,25 @@
 //@ts-nocheck
-import React from 'react';
-import moment from 'moment';
-import Helmet from 'react-helmet';
+import React from "react";
+import Helmet from "react-helmet";
 
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
+import DayPickerInput from "react-day-picker/DayPickerInput";
+import "react-day-picker/lib/style.css";
 
-import {formatDate, parseDate} from 'react-day-picker/moment';
-import style from "./dayPickerRange.module.scss";
-
+import { formatDate, parseDate } from "react-day-picker/moment";
 
 class DayPickerRange extends React.Component {
-  constructor(props) {
-    super(props);
-    /*this.handleFromChange = this.handleFromChange.bind(this);
-    this.handleToChange = this.handleToChange.bind(this);
-    this.state={
-      from : props.from,
-      to: props.to
-    }*/
-  }
-
-
-  /*handleFromChange(from) {
-    // Change the from date and focus the "to" input field
-    this.setState({ from });
-    console.log("handleFromChange",  from);
-    this.props.onFromChange(from);
-  }*/
-
-  /*handleToChange(to) {
-    this.setState({ to }, this.showFromMonth);
-    console.log("handleToChange",  to);
-    this.props.onToChange(to);
-  }*/
-
   render() {
-    const {from, to, handleFromChange, handleToChange} = this.props;
-    const modifiers = {start: from, end: to};
-    console.log("this.props.innerRef", this.props.innerRef, this.props.innerRef?.daypicker);
+    const { from, to, handleFromChange, handleToChange } = this.props;
+    const modifiers = { start: from, end: to };
 
     const modifiersStyles = {
       birthday: {
-        color: 'white',
-        backgroundColor: '#ffc107',
+        color: "white",
+        backgroundColor: "#ffc107",
       },
       thursdays: {
-        color: '#ffc107',
-        backgroundColor: '#fffdee',
+        color: "#ffc107",
+        backgroundColor: "#fffdee",
       },
     };
 
@@ -63,8 +35,8 @@ class DayPickerRange extends React.Component {
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
-              selectedDays: [from, {from, to}],
-              disabledDays: {after: to},
+              selectedDays: [from, { from, to }],
+              disabledDays: { after: to },
               toMonth: to,
               modifiers,
               numberOfMonths: 1,
@@ -85,8 +57,8 @@ class DayPickerRange extends React.Component {
             formatDate={formatDate}
             parseDate={parseDate}
             dayPickerProps={{
-              selectedDays: [from, {from, to}],
-              disabledDays: {before: from},
+              selectedDays: [from, { from, to }],
+              disabledDays: { before: from },
               modifiers,
               month: from,
               fromMonth: from,
@@ -115,6 +87,12 @@ class DayPickerRange extends React.Component {
         border-radius: 5px;
         transition: all 0.2s linear;
      }     
+     
+     @media (max-width: 767.9px){
+       .InputFromTo-to input, .InputFromTo-from input{
+         width: 100%;
+       }
+     }
      
     .DayPicker-Day {
        border-radius: 5px !important;
@@ -187,14 +165,10 @@ class DayPickerRange extends React.Component {
   }
 }
 
-export default React.forwardRef((props, ref) => <DayPickerRange
-  innerRef={ref} {...props}
-/>);
+export default React.forwardRef((props, ref) => <DayPickerRange innerRef={ref} {...props} />);
 // _________________________________________________________________________________________________________________________________________________________
 /*const DayPickerRange = (props) => {
   const {from, to, handleFromChange, handleToChange } = props;
-
-  console.log("from, to!", from, to);
 
   const refInput = useRef(null);
   /!*constructor(props) {
@@ -214,18 +188,13 @@ export default React.forwardRef((props, ref) => <DayPickerRange
     }
     if (moment(to).diff(moment(from), 'months') < 2) {
       //refInput.current.getDayPicker().showMonth(from);
-      console.log("refInput.current", refInput.current);
     }
   }, [from,to, refInput])
 
-  console.log("refInput.current!!", refInput?.current);
   const str = JSON.stringify(refInput?.current, getCircularReplacer());
-  console.log("str==", str.indexOf("getInput"), str.indexOf("getDayPicker"));
-
   /!* handleFromChange(from) {
      // Change the from date and focus the "to" input field
      this.setState({ from });
-     console.log("handleFromChange",  from);
      this.props.onFromChange(from);
    }*!/
 
@@ -235,7 +204,6 @@ export default React.forwardRef((props, ref) => <DayPickerRange
   , [to, showFromMonth])
   /!*function handleToChange(to) {
     this.setState({ to }, this.showFromMonth);
-    console.log("handleToChange",  to);
     this.props.onToChange(to);
   }*!/
 
@@ -259,7 +227,7 @@ export default React.forwardRef((props, ref) => <DayPickerRange
               toMonth: to,
               modifiers,
               numberOfMonths: 1,
-              onDayClick: () => { console.log("onDayCLick"); refInput.current?.input?.focus()},
+              onDayClick: () => { refInput.current?.input?.focus()},
             }}
             onDayChange={handleFromChange}
           />
@@ -392,13 +360,11 @@ export default class DayPickerRange extends React.Component {
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
     this.setState({ from });
-    console.log("handleFromChange",  from);
     this.props.onFromChange(from);
   }
 
   handleToChange(to) {
     this.setState({ to }, this.showFromMonth);
-    console.log("handleToChange",  to);
     this.props.onToChange(to);
   }
 

@@ -3,12 +3,13 @@
 
 .chartsContainer {
   background: white;
-  border: 1px solid #D9E1FF;
+  border: 1px solid #d9e1ff;
   border-radius: 10px;
 }
 
 .chartWrap {
   padding: 0 4px 20px;
+  background: white;
 }
 
 .inputWrap {
@@ -19,28 +20,24 @@
     text-align: center;
   }
 
-  @media(max-width: 1439.9px) {
-    width: 170px
+  @media (max-width: 1439.9px) {
+    width: 170px;
   }
-  @media(max-width: 767.9px) {
+  @media (max-width: 767.9px) {
     width: 130px;
     &:last-child {
-      margin-right: 0
+      margin-right: 0;
     }
   }
-  @media(max-width: 374.9px) {
-    width: 110px
+  @media (max-width: 374.9px) {
+    width: 110px;
   }
 }
 
 .inputChart {
-  @media(max-width: 374.9px) {
+  @media (max-width: 374.9px) {
     padding: 0 10px;
   }
-}
-
-.inputLabel {
-
 }
 
 .controls {
@@ -51,8 +48,9 @@
   margin-bottom: 0;
   padding: 24px;
   padding-bottom: 12px;
+  width: 100%;
 
-  @media(max-width: 374.9px) {
+  @media (max-width: 374.9px) {
     padding: 15px;
   }
 }
@@ -74,7 +72,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   transition: background 0.2s;
   background-color: $primary;
   margin-right: 8px;
@@ -95,5 +93,11 @@
 }
 
 .chartButton:hover {
-  background: #28AB7C;
+  background: #28ab7c;
+}
+
+.chartStorageContainer {
+  width: 100%;
+  height: 500px;
+  min-width: 100%;
 }

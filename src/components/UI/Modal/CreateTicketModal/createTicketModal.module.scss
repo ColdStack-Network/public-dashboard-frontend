@@ -1,5 +1,5 @@
 @import "src/common";
-.selectLabel{
+.selectLabel {
   color: $textSecondary;
   font-size: 12px;
   line-height: 24px;
@@ -11,7 +11,7 @@
   margin-bottom: 16px;
 }
 
-.successText{
+.successText {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -20,4 +20,7 @@
   color: $textSecondary;
   margin-top: 30px;
   margin-bottom: 102px;
+}
+.wrap {
+  max-width: 480px;
 }

@@ -1,0 +1,21 @@
+.lottoBanner {
+  width: 100%;
+  text-align: center;
+  background-color: #0053f1;
+  padding: 2px;
+
+  a {
+    min-height: 33px;
+    display: block;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 33px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

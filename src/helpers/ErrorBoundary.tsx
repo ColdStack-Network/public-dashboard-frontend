@@ -5,7 +5,7 @@ export default class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
- /* componentDidCatch(error, errorInfo) {
+  /* componentDidCatch(error, errorInfo) {
     // Catch errors in any components below and re-render with error message
     this.setState({
       error: error,
@@ -24,7 +24,10 @@ export default class ErrorBoundary extends React.Component {
       // Error path
       return (
         <div>
-          <div style={{fontSize: "16px", color: "#5A5D65"}}> Something went wrong. Please check your network connection and reload the page.</div>
+          <div style={{ fontSize: "16px", color: "#5A5D65" }}>
+            {" "}
+            Something went wrong. Please check your network connection and reload the page.
+          </div>
           {/* <details style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
             {this.state.errorInfo.componentStack}

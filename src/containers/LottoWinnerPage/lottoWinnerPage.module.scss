@@ -1,0 +1,193 @@
+.subheader.subheader {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  color: #5D6A85;
+  margin-top: 32px;
+}
+
+.lotteryWinnerContainer {
+  padding-top: 100px;
+  padding-bottom: 160px;
+  @media (max-width: 960px) {
+    padding-top: 80px;
+    padding-bottom: 104px;
+  }
+  @media (max-width: 560px) {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+  h2 {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 80px;
+    @media (max-width: 960px) {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 560px) {
+      font-size: 24px;
+      line-height: 32px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .mb60 {
+    margin-bottom: 60px;
+    @media (max-width: 960px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 560px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .p24 {
+    padding: 24px;
+    @media (max-width: 960px) {
+      padding: 32px;
+    }
+    @media (max-width: 560px) {
+      padding: 20px;
+    }
+  }
+
+  .jackpotBlock {
+    text-align: center;
+    padding: 48px 0;
+    background-color: #0053F1;
+    background-image: url("../../images/Brand.png");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    @media (max-width: 560px) {
+      padding: 26px 0;
+    }
+    h3 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      color: #FFFFFF;
+      @media (max-width: 960px) {
+        font-size: 28px;
+        line-height: 40px;
+      }
+      @media (max-width: 560px) {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+    p {
+      margin: 0;
+      margin-top: 16px;
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        @media (max-width: 960px) {
+          font-size: 18px;
+          line-height: 28px;
+        }
+        @media (max-width: 560px) {
+          font-size: 12px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .winners {
+    background-color: #F4F6FD;
+    display: flex;
+    border-radius: 8px;
+    justify-content: space-between;
+    @media (max-width: 960px) {
+      display: block;
+    }
+
+    .winnersSide {
+      h4, p {
+        margin: 0;
+      }
+      .place {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        color: #0053F1;
+        margin-bottom: 16px;
+        @media (max-width: 960px) {
+          text-align: center;
+        }
+        @media (max-width: 560px) {
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+      .pool {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        color: #333333;
+        @media (max-width: 960px) {
+          text-align: center;
+        }
+        @media (max-width: 560px) {
+          font-size: 24px;
+          line-height: 32px;
+        }
+      }
+      .mb20 {
+        margin-bottom: 20px;
+        @media (max-width: 560px) {
+          margin-bottom: 16px;
+        }
+      }
+      .wallets {
+        min-width: 660px;
+        @media (max-width: 960px) {
+          min-width: auto;
+        }
+        span {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          color: #1B2A47;
+          font-family: 'Outfit', sans-serif;
+          margin-right: 40px;
+          @media (max-width: 960px) {
+            font-size: 18px;
+            line-height: 28px;
+            @media (max-width: 560px) {
+              display: block;
+            }
+          }
+        }
+        a {
+          font-family: 'Outfit', sans-serif;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          color: #2872FF;
+          @media (max-width: 960px) {
+            font-size: 18px;
+            line-height: 28px;
+          }
+          @media (max-width: 560px) {
+            font-size: 12px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}

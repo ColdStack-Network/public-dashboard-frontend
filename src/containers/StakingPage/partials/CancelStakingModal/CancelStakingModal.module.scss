@@ -1,0 +1,24 @@
+@import "src/common";
+
+.wrapper {
+  max-width: 480px;
+}
+.inner {
+}
+.footer {
+  margin-top: 38px;
+  display: flex;
+  justify-content: end;
+}
+.keepBtn {
+  margin-right: 24px;
+}
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}
+.textWarn {
+  color: $accent;
+}

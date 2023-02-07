@@ -76,3 +76,26 @@
 .label {
   margin: 0px 0px 10px 10px;
 }
+
+@keyframes highlight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.highLight {
+  position: absolute;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  left: -1.5px;
+  top: -1.5px;
+  outline: solid 3px #22c55e;
+  animation-duration: 1.5s;
+  animation-name: highlight;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

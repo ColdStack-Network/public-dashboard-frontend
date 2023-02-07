@@ -1,0 +1,264 @@
+@import "src/common";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.waves {
+  background-image: url("../../images/waves.png"), linear-gradient(180deg, #f4f6fd 0%, #e9edfd 100%);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  padding: 25px 0 80px;
+}
+.hat {
+  margin-bottom: 24px;
+}
+.banner {
+  text-align: center;
+
+  h1 {
+    font-size: 32px;
+    margin: 0;
+    line-height: 40px;
+    margin-bottom: 24px;
+  }
+  p {
+    margin: 0 auto;
+    color: $subtitleText;
+    line-height: 32px;
+    font-size: 18px;
+
+    &:last-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+.analysis {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px;
+  overflow-x: auto;
+
+  h2 {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 1100px;
+  }
+  .tableWrap {
+    border-radius: 16px;
+    overflow: hidden;
+    width: max-content;
+    border: 1px solid #e6e9f2;
+    box-shadow: 0px 12px 48px rgba(0, 83, 241, 0.06);
+    margin: 0 auto;
+  }
+  .table {
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: separate;
+
+    .tableHead {
+      background-color: $secondary;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .tableHeadItemFirst {
+      max-width: 200px;
+    }
+    .tableHeadItem {
+      max-width: 220px;
+      padding: 24px;
+    }
+    .tableRow {
+      &:nth-child(even) {
+        background-color: $bgInput;
+      }
+    }
+    .tableItem {
+      text-align: center;
+      width: 100%;
+      display: block;
+      padding: 24px;
+    }
+    .tableItemFirstInRow {
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+}
+
+.tansparency {
+  padding: 80px 21px;
+
+  &Title {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  &Text {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 24px;
+    color: $subtitleText;
+    text-align: center;
+  }
+}
+
+.calculator {
+  padding: 80px 10px 0px;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 32px !important;
+    line-height: 48px !important;
+  }
+  .header {
+    padding: 55px 0 104px;
+  }
+  .hat {
+    margin-bottom: 78px;
+  }
+  .banner {
+    h1 {
+      font-size: 48px;
+      line-height: 64px;
+      margin-bottom: 24px;
+    }
+    p {
+      max-width: 668px;
+    }
+  }
+
+  .analysis {
+    h2 {
+      margin-bottom: 72px;
+    }
+    .table {
+      .tableItem {
+        padding: 32px;
+      }
+    }
+  }
+
+  .tansparency {
+    padding: 104px 60px;
+  }
+
+  .calculator {
+    padding: 104px 60px 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  h2 {
+    font-size: 40px !important;
+    line-height: 60px !important;
+  }
+  .header {
+    padding: 60px 0 100px;
+  }
+  .hat {
+    margin-bottom: 69px;
+  }
+  .banner {
+    h1 {
+      font-size: 64px;
+      line-height: 80px;
+    }
+    p {
+      max-width: 913px;
+    }
+  }
+
+  .analysis {
+    h2 {
+      margin-bottom: 96px;
+    }
+    .table {
+      .tableItem {
+        font-size: 20px;
+      }
+      .tableHeadItem {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .tansparency {
+    padding: 160px 138px;
+
+    &Title {
+      margin-bottom: 30px !important;
+    }
+    &Text {
+      font-size: 16px;
+      line-height: 32px;
+      max-width: 1165px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+
+      &:first-of-type {
+        max-width: 800px;
+      }
+    }
+  }
+
+  .calculator {
+    padding: 258px 120px 60px;
+  }
+}
+
+@media (min-width: 1920px) {
+  h2 {
+    font-size: 48px !important;
+    line-height: 60px !important;
+  }
+  .header {
+    padding: 55px 0 100px;
+  }
+  .hat {
+    margin-bottom: 118px;
+  }
+  .banner {
+    h1 {
+      margin-bottom: 30px;
+    }
+    p {
+      max-width: 696px;
+    }
+  }
+  .analysis {
+    h2 {
+      margin-bottom: 80px;
+    }
+  }
+}
+// helper styles
+
+.hidden {
+  display: none;
+}
+.visible-md {
+  @media (min-width: 1440px) {
+    display: block;
+  }
+}
+.visible-sm {
+  @media (max-width: 1439.9px) and (min-width: 768px) {
+    display: block;
+  }
+}
+.visible-xs {
+  @media (max-width: 767.9px) {
+    display: block;
+  }
+}

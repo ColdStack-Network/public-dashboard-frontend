@@ -1,0 +1,736 @@
+.wrapper {
+  padding: 0 0 0;
+  background-color: #ffffff;
+}
+
+.whiteSpaceNoWrap {
+  white-space: nowrap;
+}
+
+.header {
+  padding: 60px 0 0;
+  background-image: url('../../images/waves.png'), url('../../images/DecorDots.svg'), linear-gradient(180deg, #F4F6FD 0%, #E9EDFD 100%);
+  background-position: bottom left, bottom center;
+  background-repeat: no-repeat;
+}
+
+.spanBlue {
+  color: #0053F1;
+  font-weight: 600;
+}
+
+.header p {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 12px auto 30px;
+  max-width: 825px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  margin-top: 54px;
+  @media (max-width: 1439px) {
+    margin-top: 34px;
+  }
+}
+
+.headerSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  color: rgba(110, 126, 157, 0.49);
+}
+
+.container {
+  max-width: 1920px;
+  padding: 160px 240px;
+  width: 100%;
+  margin: auto;
+  @media (max-width: 1919px) {
+    padding: 144px 120px;
+  }
+
+  @media (max-width: 1439px) {
+    padding: 104px 60px;
+  }
+
+  @media (max-width: 1199px) {
+    padding: 104px 40px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 80px 20px;
+  }
+}
+
+.container h2 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 30px 0 20px;
+}
+
+.prizeWrapper {
+    background: url(../../images/WavesPrizeBlock.svg) repeat-x bottom center;
+}
+
+.faqItemChevron {
+    position: absolute;
+    top: 32px;
+    right: 45px;
+    transition: all 0.3s;
+}
+
+.lottoHeader {
+  position: relative;
+  /*min-height: 70vh;*/
+  /*padding: 180px 0 120px;*/
+  padding: 90px 0 40px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  background: url("../../images/Waves1Landing.svg") repeat-x bottom center, linear-gradient(180deg, #F4F6FD 0%, #E9EDFD 100%);
+
+}
+@media (max-width: 1199px) {
+  .lottoHeader {
+    /*padding: 140px 0 80px;*/
+    padding: 70px 0 20px;
+  }
+}
+
+.lottoHeader__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lottoHeader__content {
+  text-align: center;
+}
+
+.lottoHeader p {
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 12px auto 15px;
+  max-width: 825px;
+}
+
+@media (max-width: 1199px) {
+  .lottoHeader p {
+
+    font-size: 20px;
+    line-height: 30px;
+    margin: 18px 0 30px;
+  }
+
+}
+
+
+.lottoHeader__btns {
+
+  display: flex;
+  justify-content: center;
+  margin-right: -24px;
+}
+
+.lottoHeader__btns .btn {
+
+  margin-right: 24px;
+}
+.lottoHeader__btns .btn:last-child {
+  margin-right: 0;
+}
+
+
+@media (max-width: 767px) {
+  .btn:last-child {
+    display: block;
+    margin-right: 0;
+  }
+
+  .btn {
+    width: 100%;
+
+    margin: 0 0 15px;
+    text-align: center;
+    display: block;
+
+  }
+
+}
+
+
+.lottoWrapper H1 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 80px;
+  /* identical to box height, or 125% */
+  text-align: center;
+  /* Text Black */
+  color: #1B2A47;
+}
+
+.lottoWrapper p .spanBlue {
+  color: #0053F1;
+  font-weight: 600;
+}
+
+.lottoWrapper p .spanBlack {
+  color: #1B2A47;
+  font-weight: 600;
+}
+
+.lottoWrapper .whiteSpaceNoWrap {
+  white-space: nowrap;
+}
+.lottoWrapper .lightGray {
+  color: rgba(110, 126, 157, 0.49);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.lottoWrapper .btn {
+  box-shadow: 0px 16px 40px rgba(0, 35, 102, 0.1);
+  width: 100%;
+  max-width: 320px;
+}
+
+@media (max-width: 767px) {
+  .lottoWrapper .lightGray {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+
+.lottoWrapper h2 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 48px !important;
+  line-height: 60px !important;
+  /* identical to box height, or 125% */
+
+  text-align: center;
+
+  /* Text Black */
+
+  color: #1B2A47;
+}
+
+.prizeWrapper {
+  background: url("../../images/WavesPrizeBlock.svg") repeat-x bottom center;
+}
+
+.prizeBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin-bottom: 70px;
+}
+
+.prizeCard {
+  max-width: 338px;
+  height: 180px;
+  border-radius: 8px;
+  background: #F4F6FD;
+  /* Border */
+
+  border: 1px solid #D9E1FF;
+  box-sizing: border-box;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prizeCardDisclaimer {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 16px;
+  /* identical to box height, or 133% */
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #0053F1;
+}
+
+.prizeCardTitle {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  /* identical to box height, or 125% */
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #333333;
+  margin-bottom: 16px;
+}
+
+.prizeCardSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+
+  color: #5A5D65;
+}
+
+.prizeCard.first {
+  background: url("../../images/Brand.png") no-repeat right bottom;
+  background-size: cover;
+  border: none;
+}
+
+
+.prizeCard.first .prizeCardDisclaimer {
+  color: #ffffff;
+}
+
+.prizeCard.first .prizeCardTitle {
+  color: #ffffff;
+
+}
+
+.prizeCard.first .prizeCardSubtitle {
+  color: #ffffff;
+}
+
+
+.prizeCard.first .prizeCardSubtitle span {
+  font-weight: 600;
+}
+
+.prizeSubtitle {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin: auto;
+}
+
+.prizeSubtitle .weight600 {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.prizeSubtitle .blue {
+  color: #0053F1;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.prizeContent h2 {
+  margin-bottom: 60px !important;
+}
+
+.faqWrapper {
+  background: url("../../images/DotsFaq.svg") no-repeat top 225px left 240px, url("../../images/Wave1FAQ.svg") repeat-x bottom center, url("../../images/Wave2FAQ.svg") repeat-x bottom center, linear-gradient(180deg, #F4F6FD 0%, #E9EDFD 100%);
+  padding: 0 0 20px;
+}
+
+
+.faqsBlock {
+  background-color: #ffffff;
+  /*max-width: 868px;*/
+  margin: auto;
+  border: 0.5px solid rgba(110, 126, 157, 0.2);
+  box-sizing: border-box;
+  box-shadow: 4px 4px 12px #D9E1FF;
+  border-radius: 10px;
+}
+
+.faqItem {
+  position: relative;
+  padding: 0 40px;
+}
+
+
+
+.faqItemChevron {
+  position: absolute;
+  top: 32px;
+  right: 45px;
+  transition: all 0.3s;
+}
+
+.faqInput:checked ~ .faqItemChevron {
+  transform: rotate(180deg);
+}
+
+.faqInput {
+  display: none;
+}
+
+.faqItemTitle {
+  height: 72px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+
+  /* Black */
+
+  color: #1B2A47;
+}
+
+@media (max-width: 767px) {
+  .faqItemTitle {
+    height: 56px;
+    font-size: 13px;
+    line-height: 24px;
+  }
+  .faqItemChevron {
+    top: 26px;
+  }
+}
+
+.faqItemText {
+  /*display: none;*/
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+
+  /* Gray */
+
+  color: #6E7E9D;
+transition: all 0.1s;
+}
+
+@media (max-width: 767px) {
+  .faqItemText, .faqItemText .link {
+    font-size: 12px !important;
+    line-height: 24px !important;
+  }
+}
+
+
+.faqItemTitle {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.faqItemChevron {
+  z-index: 0;
+  cursor: pointer;
+
+}
+
+.faqItemText {
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+.faqInput:checked ~ .faqItemText {
+  opacity: 1;
+  height: auto;
+  padding-bottom: 24px;
+
+}
+
+.faqItemText .blue {
+  color: #0053F1;
+  font-weight: 600;
+}
+
+
+.faqInput:checked ~ .faqItemChevron {
+  transform: rotate(180deg);
+}
+
+.faqWrapper h2 {
+  margin-bottom: 60px !important;
+}
+
+.faqLabel .faqItem {
+  border-bottom: 0.5px solid rgba(110, 126, 157, 0.2);
+}
+
+.faqLabel:last-child .faqItem {
+  border-bottom: none;
+}
+
+
+.lastBanner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lastBanner h2 {
+  margin-bottom: 60px;
+}
+
+
+.center2 {
+  margin-top: 0 !important;
+
+}
+
+@media (max-width: 1919px) {
+
+  .faqWrapper {
+    background: url("../../images/DotsFaq.svg") no-repeat top 402px left 64px, url("../../images/Wave1FAQ.svg") repeat-x bottom center, url("../../images/Wave2FAQ.svg") repeat-x bottom center, linear-gradient(180deg, #F4F6FD 0%, #E9EDFD 100%);
+    padding: 0 0 10px;
+  }
+
+  .faqWrapper h2 {
+    margin-bottom: 60px;
+  }
+
+  .lastBanner {
+    padding: 70px 0 22px;
+  }
+
+  .lottoWrapper h2 {
+    font-size: 40px !important;
+line-height: 60px !important;
+  }
+
+
+}
+
+@media (max-width: 1439px) {
+  .prizeContent h2 {
+    margin-bottom: 80px;
+  }
+
+  .faqWrapper {
+    padding: 0 0 10px;
+  }
+
+  .lastBanner {
+    padding: 60px 0 8px;
+  }
+
+  .lottoWrapper h2 {
+    font-size: 32px !important;
+line-height: 60px !important;
+  }
+
+}
+
+@media (max-width: 1199px) {
+  .prizeBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .prizeContent h2 {
+    margin-bottom: 32px;
+  }
+
+  .faqWrapper h2 {
+    margin-bottom: 24px !important;
+  }
+
+  .faqItem {
+    padding: 0 32px;
+  }
+
+  .faqItemChevron {
+    right: 37px;
+  }
+
+  .lastBanner h2 {
+    margin-bottom: 40px;
+  }
+
+
+  .lottoWrapper H1 {
+    font-size: 48px;
+    line-height: 64px;
+
+  }
+
+  .prizeCardDisclaimer {
+font-size: 20px;
+line-height: 32px;
+  }
+
+  .prizeCardTitle {
+font-size: 30px;
+line-height: 40px;
+  }
+
+  .prizeCardSubtitle {
+font-size: 12px;
+line-height: 16px;
+  }
+
+}
+
+
+@media (max-width: 910px) {
+  .lottoHeader {
+    /* padding: 140px 0 80px; */
+    padding: 120px 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .prizeBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+    margin-bottom: 32px;
+    padding: 0;
+  }
+
+  .prizeContent h2 {
+    margin-bottom: 24px !important;
+  }
+
+  .faqWrapper {
+    padding: 0 0 60px;
+  }
+
+  .faqItem {
+    padding: 0 40px 0 16px;
+
+  }
+
+  .faqItemChevron {
+    right: 25px;
+  }
+
+  .lastBanner {
+    padding: 60px 0 8px
+  }
+
+  .lastBanner h2 {
+    margin-bottom: 32px;
+  }
+
+  .prizeCard {
+    max-width: none;
+  }
+
+  .cloud-space__btns {
+    display: block;
+    margin: auto !important;
+  }
+
+  .cloud-space__btns .btn:last-child {
+    margin: auto !important;
+  }
+
+  .center2 {
+    margin: auto;
+  }
+
+  .prize {
+    margin-bottom: 60px;
+  }
+
+  .lottoWrapper H1 {
+    font-size: 32px;
+    line-height: 40px;
+
+  }
+
+  .lottoWrapper h2 {
+    font-size: 24px !important;
+line-height: 32px !important;
+  }
+
+   .prizeCardDisclaimer {
+font-size: 20px;
+line-height: 32px;
+  }
+
+  .prizeCardTitle {
+font-size: 30px;
+line-height: 40px;
+  }
+
+  .prizeCardSubtitle {
+font-size: 12px;
+line-height: 16px;
+  }
+
+}
+
+
+.link {
+  display: inline;
+  border: none;
+  background-color: transparent;
+  height: auto;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px !important;
+  line-height: 24px !important;
+  /* or 171% */
+
+  /* Gray */
+
+  color: #0053F1;
+  padding: 0;
+  outline: #0053F1 !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.lottoHeader2 .bannerLottery {
+  display: none;
+}
+.lottoHeader2 .header {
+  margin-top: 0 !important;
+}
+
+.headerBannerLotto {
+  text-align: center;
+  padding: 58px 0;
+  font-family: 'Outfit', sans-serif;
+  @media (max-width: 1440px) {
+    padding: 40px 0;
+  }
+  @media (max-width: 1120px) {
+    padding: 24px 0;
+  }
+  @media (max-width: 768px) {
+    padding: 24px 0;
+  }
+}

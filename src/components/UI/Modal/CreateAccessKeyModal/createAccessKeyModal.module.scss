@@ -1,7 +1,7 @@
 @import "src/common";
 
-.note{
-  font-family: 'Inter', sans-serif;
+.note {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -9,12 +9,12 @@
   color: $textSecondary;
   margin-bottom: 33px;
 }
-.rowAccessKey{
+.rowAccessKey {
   margin-bottom: 8px;
 }
-.labelKey{
+.labelKey {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -22,52 +22,51 @@
   color: $textSecondary;
   margin-right: 16px;
 }
-.btnShowHide{
+.btnShowHide {
   display: inline-block;
   color: $secondary;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 24px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
-.itemKey{
+.itemKey {
   margin-bottom: 26px;
 }
-.itemSecret{
+.itemSecret {
   margin-bottom: 48px;
 }
-.wrapBtnDownload{
-
+.wrapBtnDownload {
 }
-.wrapBtn1{
+.wrapBtn1 {
   margin-right: 24px;
 }
-.footer{
+.footer {
   display: flex;
   justify-content: flex-end;
   @media (max-width: 374.9px) {
     flex-wrap: wrap;
   }
 }
-.footerSecond{
+.footerSecond {
   display: flex;
   justify-content: flex-end;
   position: relative;
 }
-.wrapBtnDownload{
+.wrapBtnDownload {
   margin-right: 24px;
   flex-grow: 1;
   max-width: 172px;
 }
 
-.wrapBtnCopy{
+.wrapBtnCopy {
   flex-grow: 0;
   position: relative;
-  &::after{
+  &::after {
     content: attr(data-tooltip-text);
     display: block;
     position: absolute;
@@ -79,14 +78,17 @@
     font-size: 12px;
   }
 }
-.btnContent{
+.btnContent {
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 11px;
 }
-.btnIcon{
+.btnIcon {
   display: flex;
   align-items: center;
   margin-right: 16px;
+}
+.wrap {
+  max-width: 480px;
 }

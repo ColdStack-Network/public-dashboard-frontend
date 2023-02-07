@@ -13,9 +13,10 @@
     margin-right: 10px;
   }
 }
-.wrapBtn1, .wrapBtn2{
-  @media (max-width: 374.9px){
-    & button{
+.wrapBtn1,
+.wrapBtn2 {
+  @media (max-width: 374.9px) {
+    & button {
       width: 115px;
     }
   }
@@ -36,10 +37,9 @@
   justify-content: space-between;
 }
 
-
 .pendingIcon {
   margin-bottom: 33px;
-  & svg{
+  & svg {
     display: block;
   }
 }
@@ -58,4 +58,15 @@
   font-weight: normal;
   color: $textSecondary;
   text-align: center;
+}
+
+.rowNetworks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+}
+
+.wrap {
+  max-width: 480px;
 }

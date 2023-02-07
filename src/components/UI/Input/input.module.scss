@@ -24,7 +24,8 @@
 
 .container {
   position: relative;
-  &::after{
+
+  &::after {
     content: attr(data-tooltip-text);
     display: block;
     position: absolute;
@@ -37,6 +38,7 @@
   }
 
 }
+
 .containerRow {
   display: flex;
 }
@@ -56,9 +58,10 @@
   background: $inputDisabled;
   color: #c4bbbb;
   cursor: not-allowed;
-  &.disabledBright{
+
+  &.disabledBright {
     color: #333;
-    background:  #F4F6FD!important;
+    background: #F4F6FD !important;
   }
 }
 
@@ -97,6 +100,22 @@
   justify-content: space-between;
 }
 
+.labelInput {
+  position: relative;
+}
+
+.inputRequired:before {
+  position: absolute;
+  content: " ";
+  width: 4px;
+  height: 4px;
+  background-color: #E9493F;
+  border-radius: 50%;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .maxColor {
   color: $error;
   cursor: pointer;
@@ -117,9 +136,9 @@
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  display: none;
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 .iconButton {

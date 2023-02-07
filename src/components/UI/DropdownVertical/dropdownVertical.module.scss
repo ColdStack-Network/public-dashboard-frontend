@@ -1,11 +1,12 @@
 @import "src/common";
-.container{
+.container {
+  position: relative;
   padding: 7px 0;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
-.dropdown{
+.dropdown {
   width: 160px;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -16,37 +17,45 @@
   position: absolute;
   z-index: 10;
   right: 0;
+  height: fit-content;
+}
+
+.topPosition {
+  top: 0;
+  transform: translateY(-100%);
+}
+.bottomPosition {
   top: 100%;
 }
 
-.item{
+.item {
   display: flex;
   align-items: center;
   padding: 6px 16px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
-.icon{
+.icon {
   margin-right: 15px;
   width: 24px;
 }
-.text{
+.text {
   color: $textSecondary;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
 }
-.textAccent{
-  color: $accent
+.textAccent {
+  color: $accent;
 }
-.section{
-  padding: 7px 0
+.section {
+  padding: 7px 0;
 }
-.border{
+.border {
   width: 100%;
   border-top: 1px solid $border;
-  margin: 7px 0
+  margin: 7px 0;
 }

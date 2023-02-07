@@ -1,0 +1,12 @@
+.countUp {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.countUpHide {
+  opacity: 0;
+  z-index: -1;
+  white-space: nowrap;
+}

@@ -1,34 +1,28 @@
 import axios from "axios";
-import {useEffect, useRef} from "react";
+import { LocalStorage } from "helpers/localStorage";
+import { useEffect, useRef } from "react";
 import moment from "moment";
 import io from "socket.io-client";
 import "moment/locale/en-gb";
+import { AppConfig } from "config";
 
 export const formatDate = (date) => {
   /*Mar 12, 2021 03:25 AM*/
   return moment(date).format("MMM D, YYYY hh:mm A");
-}
+};
 export const formatDateTransactions = (date) => {
   /*03.09.2021 14:23*/
   return moment(date).format("DD.MM.YYYY hh:mm ");
-}
+};
 
-export const baseUrl = process.env.REACT_APP_COLDSTACK_S3_ENDPOINT;
-export const urlAuthNode = process.env.REACT_APP_AUTHNODE_URL;
-export const apiUrl = process.env.REACT_APP_API_URL as string;
-export const depositingWallet = process.env.REACT_APP_DEPOSITING_KEY as string;
-export const wsUrl = process.env.REACT_APP_WS_API_URL;
-export const rpcUrl = process.env.REACT_APP_RPC_API_URL;
-
+export const { baseUrl, urlAuthNode, apiUrl, withdrawalUrl, depositingWallet, wsUrl, rpcUrl, type, technicalProcess } =
+  AppConfig;
 export function getToken() {
-  if (typeof window !== "undefined") {
-    return window.localStorage.getItem("accessToken")
-  }
-  return "";
+  return LocalStorage.getItem<string>("accessToken");
 }
 
 export function setToken(token) {
-  window.localStorage.setItem("accessToken", token)
+  LocalStorage.setItem<string>("accessToken", token);
   // Viktor Token
   // window.localStorage.setItem("accessToken", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweGMwMWNjYzEzMzk2OTRjNTcyMTYyZmI2NTVkY2IxYTY1ZWQwMmUzMjAiLCJpYXQiOjE2MzQ2MzYxOTR9.RssrVX1cDuEpKjrn90EQfh8mEAnkAvkgVmNs-1g5Tz8')
   // Token Edgar
@@ -40,10 +34,10 @@ export function setToken(token) {
   // window.localStorage.setItem("accessToken", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweGFjNzU4MTNjMGUwZGU0MDM2ODZlOTZiZGYyMDBlZDM2NzZiYzIwNWEiLCJpYXQiOjE2MzY5ODc1Mjh9.jOjOA2vAT6M5Q4qUBjqknpo1-Bn8sglni3sURn5KByM')
   // Token Olga
   // window.localStorage.setItem("accessToken", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIweGUwZGMxYzAyZjljZTE1MjRhMjc1NmJjYmU4NGM4MDZmYTcyZWYxOTkiLCJpYXQiOjE2MzcwNTg2OTR9.FmBQ3N3_sewRENxiUlJk0_PSk1JZH9s2GxTMO4oiVQc')
-
 }
-export function deleteToken(){
-  window.localStorage.removeItem("accessToken")
+
+export function deleteToken() {
+  LocalStorage.deleteItem("accessToken");
 }
 
 export const formatAccount = (account) => {
@@ -51,8 +45,8 @@ export const formatAccount = (account) => {
   if (!res) return "";
   let n = res?.length;
   //0x4d8708bd9...5035
-  return `${res?.slice(0, 12)}...${res.slice(n - 4)}`
-}
+  return `${res?.slice(0, 12)}...${res.slice(n - 4)}`;
+};
 
 export function usePrevious<T>(value: T): T {
   const ref = useRef<T>();
@@ -62,31 +56,30 @@ export function usePrevious<T>(value: T): T {
   return ref.current as T;
 }
 
-interface IFetchParams {
-  url: string,
-  body?: any,
-  query?: any,
-  mainUrl?: string,
-  headers?: any,
+export interface IFetchParams {
+  url: string;
+  body?: any;
+  query?: any;
+  mainUrl?: string;
+  headers?: any;
 }
 
 export const fetchApi = (method: string, codeSuccess = "200", params: IFetchParams) => {
-  const {url, body, query, mainUrl, headers} = params;
+  const { url, body, query, mainUrl, headers } = params;
   const firstUrl = mainUrl ? mainUrl : baseUrl;
-  console.log("firstUrl", firstUrl);
 
   const token = getToken();
-  let headersFull =  {
+  let headersFull = {
     Authorization: `Bearer ${token}`,
-      ContentType: 'application/json',
+    "Content-Type": "application/json",
   };
-  if (isFull(headers)){
-    headersFull = {...headersFull, ...headers};
+  if (isFull(headers)) {
+    headersFull = { ...headersFull, ...headers };
   }
   let config = {
     url: `${firstUrl}${url}`,
     method: method,
-    headers: headersFull
+    headers: headersFull,
   } as any;
 
   if (query) {
@@ -95,47 +88,47 @@ export const fetchApi = (method: string, codeSuccess = "200", params: IFetchPara
   if (body) {
     config.data = body;
   }
-  console.log("config",config);
-
-  return axios(config).then((res) => {
-    if (+res.status !== +codeSuccess && +res.status !== 200) {
-      throwError({status: res.status, message: res?.data?.message})
-    }
-    if (res.data.error) {
-      throwError({status: res.status, message: res?.data?.message})
-    }
-    return res.data as any;
-  }).catch((error) => {
-    if (error.response) {
-      //console.log("error.response", error.response)
-      throwError({status: error.response.status, message: error.response?.data?.message || error?.response?.statusText || error.response?.data?.Error?.Message})
-      /*
-       * The request was made and the server responded with a
-       * status code that falls out of the range of 2xx
-       */
-    } else if (error.request) {
-      //console.log("error.request", error.request)
-      /*
-       * The request was made but no response was received, `error.request`
-       * is an instance of XMLHttpRequest in the browser and an instance
-       * of http.ClientRequest in Node.js
-       */
-      throwError({status: '', message: "no response"})
-    } else if (error.status) { // todo: check for working correctly
-      throwError({status: error.status, message: error.message})
-    } else {
-      // Something happened in setting up the request and triggered an Error
-      //console.log('Error!', error, "message", error?.message);
-      throwError({status: '', message: error});
-    }
-  })
-}
+  return axios(config)
+    .then((res) => {
+      if (+res.status !== +codeSuccess && +res.status !== 200) {
+        throwError({ status: res.status, message: res?.data?.message });
+      }
+      if (res.data.error) {
+        throwError({ status: res.status, message: res?.data?.message });
+      }
+      return res.data as any;
+    })
+    .catch((error) => {
+      if (error.response) {
+        throwError({
+          status: error.response.status,
+          message: error.response?.data?.message || error?.response?.statusText || error.response?.data?.Error?.Message,
+        });
+        /*
+         * The request was made and the server responded with a
+         * status code that falls out of the range of 2xx
+         */
+      } else if (error.request) {
+        /*
+         * The request was made but no response was received, `error.request`
+         * is an instance of XMLHttpRequest in the browser and an instance
+         * of http.ClientRequest in Node.js
+         */
+        throwError({ status: "", message: "no response" });
+      } else if (error.status) {
+        // todo: check for working correctly
+        throwError({ status: error.status, message: error.message });
+      } else {
+        throwError({ status: "", message: error });
+      }
+    });
+};
 
 export const throwError = (error) => {
   const err = new Error(error.message) as any;
   err.status = error.status;
   throw err;
-}
+};
 
 export const getCircularReplacer = () => {
   const seen = new WeakSet();
@@ -151,30 +144,23 @@ export const getCircularReplacer = () => {
 };
 
 export function isFull(elem: any) {
-  //console.log("type isFull",typeof elem, elem);
   if (typeof elem === "undefined") {
     return false;
   }
   if (typeof elem === "object") {
     const stringifiedElem = JSON.stringify(elem, getCircularReplacer());
-//    console.log("stringifiedElem", stringifiedElem, "elem", elem);
     if (elem === null) return false;
     try {
       if (stringifiedElem === "{}") return false;
       if (stringifiedElem === "[]") return false;
       if (stringifiedElem === "undefined") return false;
-    } catch (err) {
-      //console.log("catch isFull", err)
-    }
+    } catch (err) {}
     for (const key in elem) {
       if (isFull(elem[key])) {
         return true;
       }
     }
-    if (Object.keys(elem)?.length === 0 && stringifiedElem?.length > 0){
-      return true
-    }
-    return false;
+    return Object.keys(elem)?.length === 0 && stringifiedElem?.length > 0;
   }
   if (typeof elem === "string") {
     if (elem === "{}" || elem === "[]") return false;
@@ -201,21 +187,20 @@ export function isFull(elem: any) {
 
 export const arrayClone = (arr) => {
   let i, copy;
-  //console.log("typeof arr", typeof arr);
   if (Array.isArray(arr)) {
     copy = arr.slice(0);
     for (i = 0; i < copy.length; i++) {
       copy[i] = arrayClone(copy[i]);
     }
     return copy;
-  } else if (typeof arr === 'object') {
+  } else if (typeof arr === "object") {
     let obj = {};
     for (let key in arr) {
       if (arr.hasOwnProperty(key)) {
-        if ((Array.isArray(arr[key])) || (typeof arr[key] === 'object')) {
-          obj = {...obj, [key]: arrayClone(arr[key])}
+        if (Array.isArray(arr[key]) || typeof arr[key] === "object") {
+          obj = { ...obj, [key]: arrayClone(arr[key]) };
         } else {
-          obj = {...obj, [key]: arr[key]}
+          obj = { ...obj, [key]: arr[key] };
         }
       }
     }
@@ -225,8 +210,8 @@ export const arrayClone = (arr) => {
   }
 };
 
-export function capitalize(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+export function capitalize(string = "") {
+  return string.length > 1 ? string.charAt(0).toUpperCase() + string.slice(1) : "";
 }
 
 export function randomInteger(min, max) {
@@ -234,7 +219,7 @@ export function randomInteger(min, max) {
   return Math.round(rand);
 }
 
-export const formBreadcrumbs = ({initElem, pathFolder, nameBucket, file}) => {
+export const formBreadcrumbs = ({ initElem, pathFolder, nameBucket, file }) => {
   let result = [initElem];
   let elems = pathFolder.split("/");
   if (elems[elems.length - 1]?.length === 0) {
@@ -248,37 +233,35 @@ export const formBreadcrumbs = ({initElem, pathFolder, nameBucket, file}) => {
   for (let i = 0; i < n; i++) {
     const path = `${prev}/${elems[i]}`;
     let elem = elems[i];
-   // const decoded = decodeURI(elem);
+    // const decoded = decodeURI(elem);
     //result.push({title: decodeURIComponent(elems[i]), path: path});
-    result.push({title: elem, path: path});
+    result.push({ title: elem, path: path.replace("//", "/") });
     prev = path;
   }
 
   if (file) {
-    result.push({title: file})
-    //result.push({title: decodeURIComponent(file)})
+    result.push({ title: file });
   }
   return result;
-}
+};
 
 export const downloadFileByLink = async (link, name) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     if (typeof document !== "undefined") {
-      //console.log("downloadFileByLink", link, name);
-      const linkElem = document.createElement('a');
-      linkElem.setAttribute('href', link);
-      linkElem.setAttribute('download', name);
-      linkElem.setAttribute('_target', "_blank");
-      linkElem.style.display = 'none';
+      const linkElem = document.createElement("a");
+      linkElem.setAttribute("href", link);
+      linkElem.setAttribute("download", name);
+      linkElem.setAttribute("_target", "_blank");
+      linkElem.style.display = "none";
       document.body.appendChild(linkElem);
       linkElem.click();
       document.body.removeChild(linkElem);
-      resolve(true)
+      resolve(true);
     } else {
-      resolve(true)
+      resolve(true);
     }
-  })
-}
+  });
+};
 
 /*export const downloadFilesByLinks = async (links)=>{
   return new Promise((resolve, reject)=>{
@@ -296,15 +279,12 @@ export const downloadFileByLink = async (link, name) => {
       linkElem.style.display = 'none';
       document.body.appendChild(linkElem);*!/
       for (let i = 0; i < links.length; i++) {
-        console.log("for", i, links[i]);
         linksMas[i].setAttribute('href', links[i].link);
         linksMas[i].setAttribute('download', links[i].name);
       }
       for (let i = 0; i < links.length; i++) {
-        console.log("CLICK", linksMas[i].href);
         linksMas[i].click();
       }
-      console.log("linksMas", linksMas);
       /!*for (let i = 0; i < links.length; i++) {
         document.body.removeChild(linksMas[i]);
       }*!/
@@ -320,14 +300,14 @@ export function downloadFiles(files) {
     if (i >= files.length) {
       return;
     }
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = files[i].link;
-    a.target = '_parent';
+    a.target = "_parent";
     // Use a.download if available, it prevents plugins from opening.
-    if ('download' in a) {
+    if ("download" in a) {
       a.download = files[i].name;
     } else {
-      a.setAttribute('download', files[i].name)
+      a.setAttribute("download", files[i].name);
     }
     // Add a to the doc for click to work.
     (document.body || document.documentElement).appendChild(a);
@@ -347,10 +327,9 @@ export function downloadFiles(files) {
   download_next(0);
 }
 
-
 export function getQuery() {
   let match,
-    pl = /\+/g,  // Regex for replacing addition symbol with a space
+    pl = /\+/g, // Regex for replacing addition symbol with a space
     search = /([^&=]+)=?([^&]*)/g,
     decode = function (s) {
       return decodeURIComponent(s.replace(pl, " "));
@@ -359,29 +338,35 @@ export function getQuery() {
 
   let urlParams = {};
   //eslint-disable-next-line
-  while (match = search.exec(query))
-    urlParams[decode(match[1])] = decode(match[2]);
+  while ((match = search.exec(query))) urlParams[decode(match[1])] = decode(match[2]);
   return urlParams;
 }
-
 
 export function formatBytes(a, b = 2) {
   try {
     if (0 === a) return "0 B";
-    const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024));
-    return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d]
-  }catch(err){
+    const c = 0 > b ? 0 : b,
+      d = Math.floor(Math.log(a) / Math.log(1024));
+    return (
+      parseFloat((a / Math.pow(1024, d)).toFixed(c)) +
+      " " +
+      ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d]
+    );
+  } catch (err) {
     console.error("catch formatBytes", err);
-    return "0 B"
+    return "0 B";
   }
 }
 
-export const initSocket = ()=>{
+export const initSocket = () => {
   const token = getToken() as string;
-  const socket = io(apiUrl, { path: "/socket.io", query:{ token: token }, forceNew: true, transports: ['websocket', 'polling'] });
-  return socket;
-}
-
+  return io(apiUrl, {
+    path: "/socket.io",
+    query: { token: token },
+    forceNew: true,
+    transports: ["websocket", "polling"],
+  });
+};
 
 export function isBucketNameValid(bucketName: string): boolean {
   return (
@@ -391,38 +376,50 @@ export function isBucketNameValid(bucketName: string): boolean {
     !bucketName.match(/^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/)
   );
 }
+
 export function validateBucketName(bucketName: string): string {
-  if (bucketName?.length === 0){
+  if (bucketName?.length === 0) {
     return "Fill the field";
   }
-  if (!bucketName.match(/^[a-z0-9-]+$/)){
-    return "Bucket name can only contain lower case Latin letters (a-b), digits (0-9) and hyphens (-)."
+  if (!bucketName.match(/^[a-z0-9-]+$/)) {
+    return "Bucket name can only contain lower case Latin letters (a-b), digits (0-9) and hyphens (-).";
   }
-  if (bucketName[0] === "-" || bucketName?.[bucketName.length - 1] === "-"){
-    return "Bucket name can't start or end with a hyphen."
+  if (bucketName[0] === "-" || bucketName?.[bucketName.length - 1] === "-") {
+    return "Bucket name can't start or end with a hyphen.";
   }
-  if (bucketName?.length < 3){
+  if (bucketName?.length < 3) {
     return "Bucket name must be 3 or more characters long.";
   }
-  if (bucketName?.length > 63){
+  if (bucketName?.length > 63) {
     return "Bucket name must be less than 63 characters long.";
   }
   return "";
 }
 
 export function isFolderNameValid(nameFolder: string): boolean {
-  return (
-    nameFolder.length >= 1 &&
-    nameFolder.length <= 63 &&
-    nameFolder.indexOf('/') <= -1
-  );
+  return nameFolder.length >= 1 && nameFolder.length <= 63 && nameFolder.indexOf("/") <= -1;
 }
 
-export function isWithdrawValid(withdraw: string): boolean {
+export const validateFolderName = (nameFolder: string): string => {
+  switch (true) {
+    case nameFolder.length < 1: {
+      return "Folder name must contain more than 1 character";
+    }
+    case nameFolder.indexOf("/") !== -1: {
+      return "Folder can't contain slash (/) in its name.";
+    }
+    case nameFolder.length >= 63: {
+      return "Maximum length of Folder name 63 characters";
+    }
+    default: {
+      return "";
+    }
+  }
+};
+
+export function isWithdrawValid(withdraw: string, minimum: number = 25): boolean {
   return (
-    withdraw.length >= 2 &&
-    withdraw.length <= 63
-    && Number(withdraw) >= 25
+    withdraw.length >= 2 && withdraw.length <= 63 && Number(withdraw) >= minimum
     // &&
     // !!withdraw.match(/^[0-9][0-9.-]+[0-9]$/)
     // &&
@@ -441,108 +438,110 @@ export function isMetadataKeyValid(metadataKey: string): boolean {
 
 export const billingArrayTest = [
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:51:38.011Z"
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:51:38.011Z",
   },
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:51:38.566Z"
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:51:38.566Z",
   },
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:51:38.806Z"
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:51:38.806Z",
   },
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:51:39.151Z"
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:51:39.151Z",
   },
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:51:39.211Z"
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:51:39.211Z",
   },
   {
-    "amount": "2",
-    "status": "SUCCESS",
-    "type": "FROM_ETH_TO_PARACHAIN",
-    "transactionFee": "0.000034767000278136",
-    "transactionFeeUnit": "Ether",
-    "date": "1970-01-19T19:56:02.188Z"
-  }
-]
+    amount: "2",
+    status: "SUCCESS",
+    type: "FROM_ETH_TO_PARACHAIN",
+    transactionFee: "0.000034767000278136",
+    transactionFeeUnit: "Ether",
+    date: "1970-01-19T19:56:02.188Z",
+  },
+];
 
 export function uriEncode(input: string, encodeSlash = true): string {
-  let result = '';
+  let result = "";
 
   for (let i = 0; i < input.length; i++) {
     const ch = input[i];
 
     if (
-      (ch.charCodeAt(0) >= 'A'.charCodeAt(0) && ch.charCodeAt(0) <= 'Z'.charCodeAt(0)) ||
-      (ch.charCodeAt(0) >= 'a'.charCodeAt(0) && ch.charCodeAt(0) <= 'z'.charCodeAt(0)) ||
-      (ch.charCodeAt(0) >= '0'.charCodeAt(0) && ch.charCodeAt(0) <= '9'.charCodeAt(0)) ||
-      ch === '_' ||
-      ch === '-' ||
-      ch === '~' ||
-      ch === '.'
+      (ch.charCodeAt(0) >= "A".charCodeAt(0) && ch.charCodeAt(0) <= "Z".charCodeAt(0)) ||
+      (ch.charCodeAt(0) >= "a".charCodeAt(0) && ch.charCodeAt(0) <= "z".charCodeAt(0)) ||
+      (ch.charCodeAt(0) >= "0".charCodeAt(0) && ch.charCodeAt(0) <= "9".charCodeAt(0)) ||
+      ch === "_" ||
+      ch === "-" ||
+      ch === "~" ||
+      ch === "."
     ) {
       result += ch;
-    } else if (ch === '/') {
-      result += encodeSlash ? '%2F' : ch;
+    } else if (ch === "/") {
+      result += encodeSlash ? "%2F" : ch;
     } else {
       result +=
         ch.charCodeAt(0) > 255
           ? encodeURIComponent(ch)
-          : '%' + ch.charCodeAt(0).toString(16).padStart(2, '0').toUpperCase();
+          : "%" + ch.charCodeAt(0).toString(16).padStart(2, "0").toUpperCase();
     }
   }
 
   return result;
 }
 
-export const removeEmpty = (data, field1, field2)=>{
-  if (!isFull(data)){
+export const removeEmpty = (data, field1, field2) => {
+  if (!isFull(data)) {
     return data;
   }
   let index = -1;
-  let i=0;
-  let result=[];
-  while (i<data.length){
-    if ( data[i]?.[field1].toString() !== "0" || (field2.length > 0 &&  data[i]?.[field2].toString() !== "0" )) {
+  let i = 0;
+  let result = [];
+  while (i < data.length) {
+    if (data[i]?.[field1].toString() !== "0" || (field2.length > 0 && data[i]?.[field2].toString() !== "0")) {
       index = i;
       break;
     }
     i++;
   }
-  if (index >=0){
+  if (index >= 0) {
     result = data.slice(index);
   }
   return result;
-}
+};
 
 export async function timeout(time: number) {
   return new Promise((resolve) => {
-    setTimeout(() => {resolve(true)}, time);
-  })
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
 }
 
 export function formatNumber(digits: number, num: number | string) {
@@ -551,48 +550,63 @@ export function formatNumber(digits: number, num: number | string) {
   return val;
 }
 
-export function removeZeros(num: number | string) : string{
+export function removeZeros(num: number | string): string {
   let value = num.toString();
-  function removeZero(val: string): string{
+
+  function removeZero(val: string): string {
     let idx = val.indexOf(".");
-    if (idx < 0){ idx = val.indexOf(",")}
-    if (idx > 0){
-      if ((val[0] === "0" && idx > 1) || ( val[val?.length-1] === "0") ){
-        if (val[val?.length-1] === "0"){
-          val = val.substring(0, val.length -1);
+    if (idx < 0) {
+      idx = val.indexOf(",");
+    }
+    if (idx > 0) {
+      if ((val[0] === "0" && idx > 1) || val[val?.length - 1] === "0") {
+        if (val[val?.length - 1] === "0") {
+          val = val.substring(0, val.length - 1);
         }
         if (val[0] === "0" && idx > 1) {
           val = val.substring(1);
         }
         return removeZero(val);
-      }else{
-        if ( val[val?.length-1] === "." || val[val?.length-1] === ","){
-          val = val.substring(0, val.length -1);
+      } else {
+        if (val[val?.length - 1] === "." || val[val?.length - 1] === ",") {
+          val = val.substring(0, val.length - 1);
         }
-        return val
+        return val;
       }
-    }else{
-      if (val[0] === "0" && val.length > 1){
+    } else {
+      if (val[0] === "0" && val.length > 1) {
         val = val.substring(1);
         return removeZeros(val);
-      }else {
+      } else {
         return val;
       }
     }
-
   }
 
-  if (value?.toString() === "0"){
-    return "0"
+  if (value?.toString() === "0") {
+    return "0";
   }
-  const result = removeZero(value);
-  return result;
+  return removeZero(value);
 }
 
 const _time = {
   seconds: (n: number) => n * 1000,
   minutes: (n: number) => n * _time.seconds(60),
   hours: (n: number) => n * _time.minutes(60),
-}
+};
 
 export const time = _time;
+
+export function formatBalance(balance) {
+  return (balance / 1000000000000000000).toFixed(2);
+}
+
+export const voidCallback = () => null as unknown as void;
+
+export function hideWidthCounter(number, numeric) {
+  let minusValue = number;
+  for (let i = 1; i < (numeric + "").length; i++) {
+    minusValue = minusValue + number;
+  }
+  return +minusValue;
+}

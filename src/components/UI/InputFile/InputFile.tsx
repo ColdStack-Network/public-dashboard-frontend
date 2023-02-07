@@ -3,43 +3,32 @@ import style from "./inputFile.module.scss";
 
 export interface IInputFileProps {
   id: string;
-  onInputChangeHandler: (evt: React.FormEvent<HTMLInputElement>) => void;
-  children: any;
+  onInputChangeHandler: (fileList: FileList) => void;
   acceptTypes?: string[];
 }
 
-export const InputFile: FC<IInputFileProps> = ({
-                                                 id,
-                                                 onInputChangeHandler,
-                                                 children
-                                               }) => {
-  const inputFileRef = useRef(null);
-  const onChangeFile = (files) => {
-    //console.log("files", files);
-    if (files) {
-      onInputChangeHandler(files);
-    }
+export const InputFile: FC<IInputFileProps> = ({ id, onInputChangeHandler, children }) => {
+  const inputFileRef = useRef<HTMLInputElement>(null);
+  const onChangeFile = (fileList: FileList | null) => fileList && onInputChangeHandler(fileList);
+
+  const open = () => {
+    const $input = inputFileRef.current;
+    $input?.click();
   };
 
   return (
     <div className={style.wrapperButton}>
-      <label htmlFor={id} className={style.container}>
-        <div style={{pointerEvents: "none"}}>
-        {children}
-        </div>
+      <label onClick={open} htmlFor={id} className={style.container}>
+        <div>{children}</div>
       </label>
       <input
-        type={"file"}
+        type="file"
         id={id}
         ref={inputFileRef}
         multiple={true}
         hidden={true}
-        onChange={(e) => {
-          /*@ts-ignore*/
-          onChangeFile(e?.target?.files);
-        }}
+        onChange={(e) => onChangeFile(e?.target?.files)}
       />
     </div>
   );
 };
-

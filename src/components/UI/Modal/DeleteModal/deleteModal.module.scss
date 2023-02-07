@@ -1,38 +1,41 @@
 @import "src/common";
 
-.footer{
+.footer {
   display: flex;
-  & .wrapBtn:last-child{
+  & .wrapBtn:last-child {
     margin-right: 0;
   }
   @media (max-width: 374.9px) {
-    & .wrapBtn:first-child{
+    & .wrapBtn:first-child {
       margin-right: 10px;
     }
-
   }
 }
-.wrapBtn{
+.wrapBtn {
   margin-right: 24px;
   @media (max-width: 374.9px) {
-      & button{
-        width: 115px;
-      }
+    & button {
+      width: 115px;
+    }
   }
 }
-.text{
-  font-family: 'Inter', sans-serif;
+.text {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
   color: $textSecondary;
 }
-.warning{
-  font-family: 'Inter', sans-serif;
+.warning {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
   color: $accent;
+}
+
+.wrap {
+  max-width: 480px;
 }

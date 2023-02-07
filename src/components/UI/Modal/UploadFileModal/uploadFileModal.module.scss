@@ -1,18 +1,18 @@
 @import "src/common";
 .container {
-
 }
-
+.wrapper {
+  max-width: 480px;
+}
 .checkrow {
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
   margin-bottom: 29px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     flex-direction: column-reverse;
     align-items: center;
   }
-
 }
 
 .size {
@@ -23,7 +23,7 @@
 
 .textSize {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -36,7 +36,8 @@
   display: flex;
   justify-content: flex-end;
 
-  & .wrapBtn1, & .wrapBtn2 {
+  & .wrapBtn1,
+  & .wrapBtn2 {
     /*width: 200px;*/
   }
   & .wrapBtn1 {
@@ -46,10 +47,11 @@
     width: 140px;
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     flex-direction: column-reverse;
     align-items: flex-end;
-    & .wrapBtn1, & .wrapBtn2 {
+    & .wrapBtn1,
+    & .wrapBtn2 {
       width: 100%;
       margin-right: 0;
 
@@ -76,7 +78,7 @@
 }
 
 .warningText {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -93,7 +95,7 @@
 }
 
 .warningLabel {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
