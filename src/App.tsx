@@ -17,7 +17,7 @@ import { useUpload } from "helpers/UseUpload";
 import { selectRedirectUrl } from "Redux/user/Selectors/selectRedirectUrl";
 import LandingPage from "./containers/LandingPage/LandingPage";
 import { debounce } from "lodash";
-import { setIsMob } from "Redux/ui/uiActions";
+import { setIsMob, toggleForcedLogoutModal} from "Redux/ui/uiActions";
 import { AppConfig } from "config";
 import { TechnicalPage } from "containers/TechnicalPage/TechnicalPage";
 import { Spinner } from "components/UI/Spinner/Spinner";
@@ -27,6 +27,9 @@ import { LocalStorage } from "./helpers/localStorage";
 import { deleteToken } from "./helpers/common";
 import { StoredWallet } from "./models/StoredWallet";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import {ForcedLogoutModal} from "./components/UI/Modal/ForcedLogoutModal/ForcedLogoutModal";
+import {selectForcedLogoutModalState} from "./Redux/ui/selectors";
+
 
 const TermsOfService = lazy(() => import("./containers/TermsOfService/TermsOfService"));
 const LottoWinnerPage = lazy(() => import("./containers/LottoWinnerPage/LottoWinnerPage"));
@@ -65,10 +68,12 @@ const SHOW_TECH = !DISABLE_TECH && IN_TECH;
 function App() {
   const dispatch = useDispatch();
   const isAuthorized = useSelector(selectIsAuthorized);
+  const isOpen = useSelector(selectForcedLogoutModalState);
   const gift = useSelector(selectGift);
   const { initWalletIfPossible, checkWalletAuth, invisibleActivate, initWeb3, active } = useWeb3({ withLogic: true });
   const isPublicPath = publicPaths[window.location.pathname];
   const redirectUrl = useSelector(selectRedirectUrl);
+
 
   if (isPublicPath) {
     window.location.replace(isPublicPath);
@@ -117,6 +122,18 @@ function App() {
       window.removeEventListener("resize", onResize);
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    const logOut = () => {
+      if (isAuthorized?.result) {
+        dispatch(toggleForcedLogoutModal(true));
+      }
+    }
+    window.addEventListener("addressChange", logOut);
+    return () => {
+      window.removeEventListener("addressChange", logOut);
+    };
+  }, [dispatch, isAuthorized?.result]);
 
   if (!SHOW_TECH && !isAuthorized.checked)
     return (
@@ -214,6 +231,7 @@ function App() {
               </Suspense>
             </ErrorBoundary>
             <SuccessModal />
+            {isOpen && <ForcedLogoutModal isOpen={isOpen} />}
             <UploadFileModal {...modalUploadProps} />
             <GiftModal visible={gift.showModal} onClose={() => {}} />
             {isAuthorized?.result && visibleUploadMini && <UploadMini {...uploadMiniProps} />}

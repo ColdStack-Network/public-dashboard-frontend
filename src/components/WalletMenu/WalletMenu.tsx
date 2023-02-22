@@ -16,6 +16,7 @@ import { resetUserStateAction } from "Redux/user/Actions/userActions";
 import { selectUsd } from "Redux/user/Selectors/selectUsd";
 import { selectUserDataBalanceCLS } from "Redux/user/Selectors/selectUserDataBalanceCLS";
 import style from "./WalletMenu.module.scss";
+import {selectEmail} from "../../Redux/user/Selectors/selectEmail";
 
 type WalletMenuProps = {
   openSearch?: boolean;
@@ -28,6 +29,7 @@ export const WalletMenu: React.FC<WalletMenuProps> = ({ openSearch }) => {
   const balanceCLS = useSelector(selectUserDataBalanceCLS);
   const usdCourse = useSelector(selectUsd);
   const isMob = useSelector(selectIsMob);
+  const emailProps = useSelector(selectEmail);
   const currentWallet = LocalStorage.getItem<StoredWallet>("wallet");
   const { formattedAccount, deactivate, account, chainId } = useWeb3();
   const dropPanelRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,7 @@ export const WalletMenu: React.FC<WalletMenuProps> = ({ openSearch }) => {
 
   useEffect(() => {
     if (account && chainId) {
-      getCLS(chainId, account).then(balanceCLSPublicKey);
+      getCLS(chainId, emailProps.publicKey).then(balanceCLSPublicKey);
     }
   }, [chainId, account]);
   useOnClickOutside(rootRef, () => setOpen(false));

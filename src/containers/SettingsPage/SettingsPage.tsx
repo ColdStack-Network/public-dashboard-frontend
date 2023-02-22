@@ -3,7 +3,6 @@ import style from "./settingsPage.module.scss";
 import SvgEdit from "../../icons/Edit";
 import InputText from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
-import { useWeb3 } from "../../helpers/web3/useWeb3";
 import { useDispatch, useSelector } from "react-redux";
 import { isFull } from "../../helpers/common";
 import { getEmailSettings, setEmailSettings } from "../../Redux/user/Actions/userActions";
@@ -18,9 +17,8 @@ const SettingsPage: React.FC<any> = (props: any) => {
     // }
   }, [dispatch]);
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const { account } = useWeb3();
   const emailProps = useSelector(selectEmail);
-  const { email, emailVerified, arn } = emailProps;
+  const { email, emailVerified, arn, publicKey } = emailProps;
   const [verified, setVerified] = useState("Not verified");
   const [arnAccount, setArnAccount] = useState("");
   const [editForm, setEditForm] = useState(false);
@@ -60,7 +58,7 @@ const SettingsPage: React.FC<any> = (props: any) => {
             <div className={style.blockContent}>
               <div className={style.rowBlock}>
                 <div className={style.label}>User Wallet:</div>
-                <div className={`${style.value} ${style.userWallet}`}>{account}</div>
+                <div className={`${style.value} ${style.userWallet}`}>{publicKey}</div>
               </div>
               <div className={style.rowBlock}>
                 <div className={style.label}>Arn:</div>

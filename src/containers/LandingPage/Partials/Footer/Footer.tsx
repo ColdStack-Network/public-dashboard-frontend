@@ -6,6 +6,7 @@ import linkedinLogo from "images/linkedin.svg";
 import mediumLogo from "images/medium.svg";
 import telegramLogo from "images/telegram.svg";
 import twitterLogo from "images/twitter.svg";
+import githubLogo from "images/github.svg";
 import { NavLink } from "../HeaderMenuLanding/HeaderMenuLanding";
 import { Link } from "react-router-dom";
 
@@ -111,6 +112,11 @@ const Footer = () => {
       icon: twitterLogo,
       href: "https://twitter.com/coldstack_io",
       name: "twitter Logo",
+    },
+    {
+      icon: githubLogo,
+      href: "https://github.com/ColdStack-Network/",
+      name: "github Logo",
     },
   ];
 

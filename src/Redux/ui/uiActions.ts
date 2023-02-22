@@ -4,6 +4,7 @@ export enum ActionTypesUI {
   UpdateUI = "UpdateUI",
   OpenSuccessModal = "OpenSuccessModal",
   CloseSuccessModal = "CloseSuccessModal",
+  ToggleForcedLogoutModal = "ToggleForcedLogoutModal",
 }
 
 export type UpdateUIstate = {
@@ -19,6 +20,11 @@ export type OpenSuccessModalAction = {
 export type CloseSuccessModalAction = {
   type: ActionTypesUI.CloseSuccessModal;
   payload: UIState["successModal"];
+};
+
+export type ToggleForcedLogoutModalAction = {
+  type: ActionTypesUI.ToggleForcedLogoutModal;
+  payload: boolean;
 };
 
 export const openSuccessModal = (title: string) => ({
@@ -41,3 +47,8 @@ export const setIsMob = (payload: boolean): UpdateUIstate => ({
   type: ActionTypesUI.UpdateUI,
   payload,
 });
+
+export const toggleForcedLogoutModal = (payload: boolean): ToggleForcedLogoutModalAction => ({
+  type: ActionTypesUI.ToggleForcedLogoutModal,
+  payload,
+})

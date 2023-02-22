@@ -1,4 +1,10 @@
-import { UpdateUIstate, ActionTypesUI, OpenSuccessModalAction, CloseSuccessModalAction } from "./uiActions";
+import {
+  UpdateUIstate,
+  ActionTypesUI,
+  OpenSuccessModalAction,
+  CloseSuccessModalAction,
+  ToggleForcedLogoutModalAction
+} from "./uiActions";
 
 export type UIState = {
   isMob: boolean;
@@ -6,6 +12,7 @@ export type UIState = {
     isOpen: boolean;
     text: string | null;
   };
+  forcedLogoutModal: boolean;
 };
 
 const initialState: UIState = {
@@ -14,9 +21,10 @@ const initialState: UIState = {
     isOpen: false,
     text: null,
   },
+  forcedLogoutModal: false
 };
 
-type ActionType = UpdateUIstate | OpenSuccessModalAction | CloseSuccessModalAction;
+type ActionType = UpdateUIstate | OpenSuccessModalAction | CloseSuccessModalAction | ToggleForcedLogoutModalAction;
 
 export const uiStateReducer = (state = initialState, action: ActionType): UIState => {
   switch (action.type) {
@@ -28,6 +36,9 @@ export const uiStateReducer = (state = initialState, action: ActionType): UIStat
     }
     case ActionTypesUI.CloseSuccessModal: {
       return { ...state, successModal: action.payload };
+    }
+    case ActionTypesUI.ToggleForcedLogoutModal: {
+      return { ...state, forcedLogoutModal: action.payload };
     }
     default: {
       return state;
